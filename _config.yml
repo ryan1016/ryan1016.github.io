@@ -191,17 +191,17 @@ sidebar:
   - title: github
     href: //github.com/ryan1016
     class: 'fab fa-github fa-fw'
-  - title: Ryan # codeforces
-    href: //codeforces.com/profile/Ryan
-    class: 'fas fa-chart-bar fw'
-
   - title: 1678691400 # qq
     class: 'fab fa-qq fa-fw'
-  - title: Wu-_-Kan # weixin
+  - title: Ryan # weixin
     class: 'fab fa-weixin fa-fw'
   - title: zhihu
-    href: //www.zhihu.com/people/wu.kan/activities
+    href: //www.zhihu.com/people/ryan-52-31-37/activities
     class: 'fab fa-zhihu fa-fw'
+  - title: weibo
+    href: //weibo.com/5665317943/profile?rightmod=1&wvr=6&mod=personinfo
+    class: 'fab fa-weibo fa-fw'
+
   nav:
   - title: '<i class="fas fa-home fa-fw"></i> 首页'
     href: /
