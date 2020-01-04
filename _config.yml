@@ -291,8 +291,8 @@ valine:
   enable: true
   autoloader: /public/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
-  appId: 9hABRddSuEkTgqLrt1VSK5B1-gzGzoHsz
-  appKey: NJ7RwmgrxsF7KDzlqU7YewlL
+  appId: LDFhGHdAQ2ePgl8jaLaBD9xd-gzGzoHsz
+  appKey: J9RUHe5IsPAQKrdURiMKQl3K
   notify: true # 评论回复邮件提醒
   verify: true # 验证码服务
   avatar: identicon
