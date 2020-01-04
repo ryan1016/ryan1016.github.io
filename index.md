@@ -1,53 +1,53 @@
 ---
 layout: index
-title: 星合の空
+title: Ryan
 ---
 ## Contact
 
-- Address: **Sun Yat-sen University - 132 Waihuan East Rd. - Guangzhou, China**
-- Phone: **+86 18756280097**
+- Address: **the University of South China - 28 Changsheng West Road- Hunan, China**
+- Phone: **+86 18593440050**
 - E-mail:
-  - **wu.kan@foxmail.com**
-  - **wukan3@mail2.sysu.edu.cn**
-  - **im.wu.kan@gmail.com**
-- WeChat: **Wu-_-Kan**
-- QQ: **942759535**
-- Blog: **<https://wu-kan.github.io>**
+  - **1678691400@qq.com**
+- WeChat: **1678691400**
+- QQ: **1678691400**
+- Blog: **<https://ryan1016.github.io>**
 
 ## Education
 
-School of Data and Computer Science, Sun Yat-sen University, Guangzhou, Sept. 2017 - Jul. 2021(expected)
+ Software of Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(expected)
 
-- Bachelor of Computer Science (Supercomputer Class)
-  - Principle of Supercomputer
-  - Parallel and Distributed Computing
-  - High Performance Computing
+
+
+-Bachelor of software engineering (Software Engineering)
+-Deep learning
+-Parallel and distributed computing
+-Front end development
+
 
 ## Honor
 
-- **Top 0.05% in 11395**, [The 18th CCF Certified Software Professional](https://wu-kan.github.io/posts/acm/%E9%A2%98%E8%A7%A3/%E7%AC%AC%E5%8D%81%E5%85%AB%E6%AC%A1CCF%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%BD%AF%E4%BB%B6%E8%83%BD%E5%8A%9B%E8%AE%A4%E8%AF%81), Dec. 2019
-- **Silver Medal**, [ICPC Asia Regional Contest Xuzhou Site](https://wu-kan.github.io/posts/acm/%E5%86%8D%E8%A7%81-%E7%AE%97%E6%B3%95%E7%AB%9E%E8%B5%9B), Nov. 2019
-- **Second Scholarship**, Oct. 2019
+- **National Endeavor Scholarship**, Oct. 2019
+- **Third Award**, [The 15th Hunan University student computer program design competition，-Robot sub item], Aug. 2019
+- **Second Award**,["Soft Silver Robot Cup" China robot skill competition] Dec. 2018
 - **First Prize**, China Collegiate Programming Contest, Guangdong Division, May 2019
 - **Third Scholarship**, Oct. 2018
 - **First Prize**, China Collegiate Programming Contest, Guangdong Division, May 2018
 
 ## Project
 
-TBD
+-SLRS(Sign Language Recognition System)
 
 ## Skill
 
 - **C/C++**, Familiar
-  - **OpenMP**, Familiar
-  - **MPI**, Familiar&Learning
-  - **CUDA**, Learning
-- **Python**, Familiar
+- **Python**, Familiar&Learning
+- **Java**, Familiar&Learning
+- **C#**, Familiar
 - **Markdown**, Familiar
-- **LaTex**, Familiar
+- **Hadoop**, Learning
+- **Spark**, Learning
 - **Linux**, Familiar&Learning
-- **Git**, Familiar
-- **VSCode**, Familiar
+- **Git**, Learning
 
 ## Leadership
 
