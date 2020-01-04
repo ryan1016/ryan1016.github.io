@@ -75,14 +75,14 @@ head: # 删改前确定知道自己在做什么
   var:
   - key: rel
     value: apple-touch-icon-precomposed
-  - key: href
+  - key: src
     value://cdn.jsdelivr.net/gh/ryan1016/CDN@2.1/image/head.png
 
 - tag: link # 小图标，同上
   var:
   - key: rel
     value: 'shortcut icon'
-  - key: href
+  - key: src
     value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.1/image/head.png
 
 
