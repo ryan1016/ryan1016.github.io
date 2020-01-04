@@ -1,6 +1,6 @@
 ---
 layout: index
-title: Ryan
+title: 
 ---
 ## Contact
 
