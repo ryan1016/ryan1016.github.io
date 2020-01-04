@@ -67,7 +67,7 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: apple-touch-icon-precomposed
   - key: href
-    value://q1.qlogo.cn/g?b=qq&nk=1678691400&s=640
+    value://gravatar.loli.net/avatar/a12c5fff23dde00df79af9aca4e7b6e4?d=wavatar&s=144
 - tag: link # 小图标，同上
   var:
   - key: rel
