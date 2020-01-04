@@ -7,6 +7,7 @@ title: Ryan
 - Address: **the University of South China - 28 Changsheng West Road- Hunan, China**
 - Phone: **+86 18593440050**
 - E-mail:
+  - **nhdxgxm@163.com**
   - **1678691400@qq.com**
 - WeChat: **1678691400**
 - QQ: **1678691400**
@@ -14,7 +15,7 @@ title: Ryan
 
 ## Education
 
- Software of Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(expected)
+ Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(expected)
 
 
 
