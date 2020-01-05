@@ -28,7 +28,9 @@ title: |
 ## Honor
 
 - **National Endeavor Scholarship**, Oct. 2019
-- **Third Award**, [The 15th Hunan University student computer program design competition，-Robot sub item], Aug. 2019
+- **Third Award**, [The 15th Hunan University Student Computer Program Design Competition，-Robot sub item], Aug. 2019
+- **National Endeavor Scholarship**, Oct. 2018
+- **Proxime Accessit,[The Campus Web Design Competition of USC]May. 2019
 - **Second Award**,["Soft Silver Robot Cup" China robot skill competition] Dec. 2018
 
 ## Project
