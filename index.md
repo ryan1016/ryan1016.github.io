@@ -1,6 +1,6 @@
 ---
 layout: index
-title: 
+title: 首页
 ---
 ## Contact
 
