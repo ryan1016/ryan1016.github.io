@@ -30,9 +30,6 @@ title: 首页
 - **National Endeavor Scholarship**, Oct. 2019
 - **Third Award**, [The 15th Hunan University student computer program design competition，-Robot sub item], Aug. 2019
 - **Second Award**,["Soft Silver Robot Cup" China robot skill competition] Dec. 2018
-- **First Prize**, China Collegiate Programming Contest, Guangdong Division, May 2019
-- **Third Scholarship**, Oct. 2018
-- **First Prize**, China Collegiate Programming Contest, Guangdong Division, May 2018
 
 ## Project
 
