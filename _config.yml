@@ -1,5 +1,6 @@
 title: Welcome To Ryan's Home
 url: http://ryan1016.github.io
+baseurl: ''
 author: Ryan.G.King
 
 markdown: kramdown
@@ -7,17 +8,14 @@ kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
 permalink: /posts/:categories/:title # 博文目录
-baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
 
 head: # 删改前确定知道自己在做什么
-
 - tag: meta # Enable responsiveness on mobile devices
   var:
   - key: name
     value: viewport
   - key: content
     value: width=device-width, initial-scale=1.0, maximum-scale=1
-
 - tag: meta
   var:
   - key: http-equiv
