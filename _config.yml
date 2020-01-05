@@ -297,7 +297,7 @@ post:
 
 valine:
   enable: true
-  autoloader://cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/valine.js
+  autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
   appId: LDFhGHdAQ2ePgl8jaLaBD9xd-gzGzoHsz
   appKey: J9RUHe5IsPAQKrdURiMKQl3K
