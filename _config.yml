@@ -10,7 +10,6 @@ url: http://ryan1016.github.io
 author: Ryan.G.King
 
 head: # 删改前确定知道自己在做什么
-
 - tag: meta # Enable responsiveness on mobile devices
   var:
   - key: name
