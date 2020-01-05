@@ -71,7 +71,7 @@ head: # 删改前确定知道自己在做什么
   - key: type
     value: application/rss+xml
 
-- tag: link # 网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
+- tag: link #网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
   var:
   - key: rel
     value: apple-touch-icon-precomposed
