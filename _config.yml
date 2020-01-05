@@ -159,13 +159,13 @@ script: # 需要在正文前调用的脚本或者插件的autoloader
     value: true
 - var:
   - key: src
-    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/prism.js
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/prism.js
 #- var: mathjax
 #  - key: src
 #    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 - var:
   - key: src
-    value: /public/js/katex.js
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/katex.js
   - key: js
     value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
   - key: auto_render
