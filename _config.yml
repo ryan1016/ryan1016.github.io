@@ -173,8 +173,8 @@ script: # 需要在正文前调用的脚本或者插件的autoloader
 #  - key: src
 #    value: //cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML
 - var:
-  - key: js
-    value://cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/katex.js
+  - key: src
+    value: /public/js/katex.js
   - key: js
     value: //cdn.jsdelivr.net/npm/katex/dist/katex.min.js
   - key: auto_render
