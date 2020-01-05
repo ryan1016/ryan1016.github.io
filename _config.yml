@@ -183,28 +183,23 @@ sidebar:
     info: <br/>USC17级在读<br/>软件工程方向<br/>大数据研究<br/>游历四方<br/> # 头像背后的信息
   description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=2&id=1386397028&auto=0&height=32"></iframe>'
   social:
-  - title: rss
-    href: /atom.xml
-    class: 'fas fa-rss fa-fw'
-  - title: wu.kan@foxmail.com # email
-    href: mailto:wu.kan@foxmail.com
+
+  - title: 1678691400@qq.com # email
+    href: mailto:1678691400@qq.com
     class: 'fas fa-envelope fa-fw'
   - title: github
-    href: //github.com/wu-kan
+    href: //github.com/ryan1016
     class: 'fab fa-github fa-fw'
-  - title: WuK # codeforces
-    href: //codeforces.com/profile/WuK
-    class: 'fas fa-chart-bar fw'
-  - title: WuK # vjudge
-    href: //vjudge.net/user/WuK
-    class: 'fas fa-smile fa-fw'
-  - title: 942759535 # qq
+  - title: 1678691400 # qq
     class: 'fab fa-qq fa-fw'
-  - title: Wu-_-Kan # weixin
+  - title: Ryan # weixin
     class: 'fab fa-weixin fa-fw'
   - title: zhihu
-    href: //www.zhihu.com/people/wu.kan/activities
+    href: //www.zhihu.com/people/ryan-52-31-37/activities
     class: 'fab fa-zhihu fa-fw'
+  - title: weibo
+    href: //weibo.com/5665317943/profile?rightmod=1&wvr=6&mod=personinfo
+    class: 'fab fa-weibo fa-fw'
   nav:
   - title: '<i class="fas fa-home fa-fw"></i> 首页'
     href: /
