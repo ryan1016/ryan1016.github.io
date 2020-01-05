@@ -227,7 +227,7 @@ sidebar:
     href: /archive
   simple_jekyll_search:
     enable: true
-    autoloader://cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/autoloader.js
+    autoloader:/public/simple-jekyll-search/autoloader.js
     stylesheet: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search_box.min.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
          
