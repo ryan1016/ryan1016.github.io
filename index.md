@@ -1,6 +1,6 @@
 ---
 layout: index
-title: Hello,
+title:  
 ---
 ## Contact
 
