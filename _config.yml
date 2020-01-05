@@ -22,36 +22,42 @@ head: # 删改前确定知道自己在做什么
     value: X-UA-Compatible
   - key: content
     value: IE=edge
+
 - tag: meta
   var:
   - key: http-equiv
     value: content-type
   - key: content
     value: 'text/html; charset=utf-8'
+
 - tag: meta # google站点验证
   var:
   - key: name
     value: google-site-verification
   - key: content
     value: YIKi1rBnyUaS-DMYiluseI5kZzTwjCkTFmKkSkMZDJk
+
 - tag: meta # baidu站点验证
   var:
   - key: name
     value: baidu-site-verification
   - key: content
     value: bEFDJ1LvXb
+
 - tag: meta # yandex站点验证
   var:
   - key: name
     value: yandex-verification
   - key: content
     value: 52253e02830b443c
+
 - tag: link
   var:
   - key: rel
     value: profile
   - key: href
     value: //gmpg.org/xfn/11
+
 - tag: link # rss
   var:
   - key: rel
@@ -62,18 +68,21 @@ head: # 删改前确定知道自己在做什么
     value: RSS
   - key: type
     value: application/rss+xml
-- tag: link # 网站大图标
+
+- tag: link #网站大图标
   var:
   - key: rel
     value: apple-touch-icon-precomposed
-  - key: href
-    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg
+  - key:href
+    value://cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg
+
 - tag: link # 小图标
   var:
   - key: rel
     value: 'shortcut icon'
   - key: href
-    value:  //cdn.jsdelivr.net/gh/ryan1016/CDN@2.1/image/head.ico
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.1/image/head.ico
+
 
 - tag: link # 下面是博客的css，有些插件的css是单独在插件里引用的，假如需要自己的css可以仿照去加在后面。无脑cdn加速了。
   var:
@@ -148,7 +157,7 @@ script: # 需要在正文前调用的脚本或者插件的autoloader
     value: //cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js # live2d
 - var:
   - key: src
-    value: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/js/mermaid.js
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/mermaid.js
   - key: js
     value: //cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js
   - key: stylesheet
@@ -179,12 +188,12 @@ script: # 需要在正文前调用的脚本或者插件的autoloader
 sidebar:
   avatar: # 侧边栏显示的头像
     enable: true
-    img:  //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg #头像的地址
+    img: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg #头像的地址
     info: <br/>USC17级在读<br/>软件工程方向<br/>大数据研究<br/>游历四方<br/> # 头像背后的信息
   description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=2&id=1386397028&auto=0&height=32"></iframe>'
-
   social:
- - title: 1678691400@qq.com # email
+
+  - title: 1678691400@qq.com # email
     href: mailto:1678691400@qq.com
     class: 'fas fa-envelope fa-fw'
   - title: github
@@ -214,14 +223,18 @@ sidebar:
     href: /archive
   simple_jekyll_search:
     enable: true
-    autoloader: /public/simple-jekyll-search/autoloader.js
+    autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/autoloader.js
     stylesheet: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search_box.min.css
-    src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js
+    src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js       
     placeholder: 搜索博文
-    json: /public/simple-jekyll-search/search.json
+    noResultsText: 没有搜索到文章 # 无搜索数据提示语
+    json: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search.json
+    
+
   jekyll_table_of_contents:
     enable: true
     autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/jekyll_table_of_contents.js
+
   busuanzi:
     enable: true
     src: //cdn.jsdelivr.net/npm/busuanzi/bsz.pure.mini.min.js
@@ -239,8 +252,8 @@ sidebar:
     alert: <i class="fas fa-user-edit fa-fw"></i>
   run_time:
     enable: true
-    src: /public/js/run_time.js
-    start_time: '01/03/2020 00:00:00' # 这是我第一篇CSDN博客的时间
+    src: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/run_time.js
+    start_time: '01/03/2020 11:15:24' # 这是我第一篇CSDN博客的时间
     alert: <i class="fas fa-cog fa-spin fa-fw"></i>
     day: 天
     hour: 时
@@ -248,7 +261,7 @@ sidebar:
     second: 秒
   copyright:
     enable: true
-    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star wu-kan/wu-kan.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-star" data-show-count="true">Star</a>'
+    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-star" data-show-count="true">Star</a>'
 
 index:
   showtag:
@@ -276,20 +289,18 @@ post:
     text: 如果这篇博客帮助到你，可以请我喝一杯咖啡~
     img: # 万一真的有人打赏呢~
     - id: wechat
-      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/wechatpay.jpg
-    - id: wechatappreciate
-      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/wechatappreciate.jpg
+      src: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/wechatpay.png
     - id: qq
-      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/qqpay.jpg
+      src: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/qqpay.png
     - id: alipay
-      src: //cdn.jsdelivr.net/gh/wu-kan/wu-kan.github.io@1788f1b6c2e12cca626b85f25749f99ca0c7aad0/public/image/alipay.jpg
+      src: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/alipay.png
 
 valine:
   enable: true
-  autoloader: /public/js/valine.js
+  autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/valine.js
   src: //cdn.jsdelivr.net/npm/valine
-  appId: 9hABRddSuEkTgqLrt1VSK5B1-gzGzoHsz
-  appKey: NJ7RwmgrxsF7KDzlqU7YewlL
+  appId: LDFhGHdAQ2ePgl8jaLaBD9xd-gzGzoHsz
+  appKey: J9RUHe5IsPAQKrdURiMKQl3K
   notify: true # 评论回复邮件提醒
   verify: true # 验证码服务
   avatar: identicon
