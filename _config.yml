@@ -1,12 +1,13 @@
+title: Welcome To Ryan's Home
+url: http://ryan1016.github.io
+baseurl: ''
+author: Ryan.G.King
+
 markdown: kramdown
 kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
 permalink: /posts/:categories/:title # 博文目录
-baseurl: ''
-title: Welcome To Ryan's Home
-url: http://ryan1016.github.io
-author: Ryan.G.King
 
 head: # 删改前确定知道自己在做什么
 - tag: meta # Enable responsiveness on mobile devices
