@@ -231,7 +231,7 @@ sidebar:
     stylesheet: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search_box.min.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js       
     placeholder: 搜索博文
-    json: /public/simple-jekyll-search/search.json
+    json: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search.json
   jekyll_table_of_contents:
     enable: true
     autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/jekyll_table_of_contents.js
