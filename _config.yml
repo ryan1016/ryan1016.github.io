@@ -98,7 +98,7 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: stylesheet
   - key: href
-    value: /public/css/wu-kan.css
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.4/css/ryan.css
 - tag: link
   var:
   - key: rel
