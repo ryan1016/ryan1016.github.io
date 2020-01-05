@@ -1,13 +1,13 @@
+title: Welcome To Ryan's Home
+url: http://ryan1016.github.io
+author: Ryan.G.King
+
 markdown: kramdown
 kramdown:
   input: GFM # Github Flavored Markdown
   math_engine: katex # 防止行间公式渲染错误
 permalink: /posts/:categories/:title # 博文目录
 baseurl: "" # 假如你的博客是建在某个目录下的，请在这里加上目录名，并且下面配置的所有链接里的`/public`前也要加，即`/your_baseurl/public`。这一项结尾不要有'/'
-
-title: Welcome To Ryan's Home
-url: http://ryan1016.github.io
-author: Ryan.G.King
 
 head: # 删改前确定知道自己在做什么
 
@@ -71,14 +71,14 @@ head: # 删改前确定知道自己在做什么
   - key: type
     value: application/rss+xml
 
-- tag: link #网站大图标，我偷懒直接用gravatar了，也可以存在/public里面
+- tag: link #网站大图标
   var:
   - key: rel
     value: apple-touch-icon-precomposed
   - key:href
     value://cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg
 
-- tag: link # 小图标，同上
+- tag: link # 小图标
   var:
   - key: rel
     value: 'shortcut icon'
@@ -192,7 +192,7 @@ sidebar:
     enable: true
     img: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/image/head.jpg #头像的地址
     info: <br/>USC17级在读<br/>软件工程方向<br/>大数据研究<br/>游历四方<br/> # 头像背后的信息
-  description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=0&id=155059595&auto=0&height=32"></iframe>'
+  description: '<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=100% height=52 src="//music.163.com/outchain/player?type=0&id=27759600&auto=0&height=32"></iframe>'
   social:
 
   - title: 1678691400@qq.com # email
@@ -229,10 +229,14 @@ sidebar:
     stylesheet: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search_box.min.css
     src: //cdn.jsdelivr.net/npm/simple-jekyll-search/dest/simple-jekyll-search.min.js       
     placeholder: 搜索博文
+    noResultsText: 没有搜索到文章 # 无搜索数据提示语
     json: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/simple-jekyll-search/search.json
+    
+
   jekyll_table_of_contents:
     enable: true
     autoloader: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.2/js/jekyll_table_of_contents.js
+
   busuanzi:
     enable: true
     src: //cdn.jsdelivr.net/npm/busuanzi/bsz.pure.mini.min.js
