@@ -98,7 +98,7 @@ head: # 删改前确定知道自己在做什么
   - key: rel
     value: stylesheet
   - key: href
-    value: //cdn.jsdelivr.net/gh/ryan1016/CDN@2.4.5/css/ryan.css
+    value: //cdn.jsdelivr.net/gh/ryan1016/CDN/css/ryan.css
 
 - tag: link
   var:
@@ -203,14 +203,15 @@ sidebar:
   nav:
   - title: '<i class="fas fa-home fa-fw"></i> 首页'
     href: /
-  - title: '<i class="fab fa-readme fa-fw"></i> 关于'
-    href: /about
-  - title: '<i class="fas fa-comments fa-fw"></i> 留言'
-    href: /comments
   - title: '<i class="fas fa-tags fa-fw"></i> 标签'
     href: /tags
   - title: '<i class="fas fa-archive fa-fw"></i> 归档'
     href: /archive
+  - title: '<i class="fas fa-comments fa-fw"></i> 留言'
+    href: /comments
+  - title: '<i class="fab fa-readme fa-fw"></i> 关于'
+    href: /about
+
   simple_jekyll_search:
     enable: true
     autoloader: /public/simple-jekyll-search/autoloader.js
