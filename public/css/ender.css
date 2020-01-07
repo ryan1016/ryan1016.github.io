@@ -1,0 +1,168 @@
+.masthead {
+    background: #F5F5FA;
+    opacity: 100%;
+    /*url(/public/iamge/background.jpg);*/
+    top: 0;
+    width: 100%;
+}
+
+#id_footer {
+    height: 1.5rem; /*设定footer高度*/
+    position: fixed; /*设定footer绝对位置在底部*/
+    bottom: 0;
+    width: 100%; /*展开footer宽度*/
+    background-color: transparent;
+    margin-top: -1.5rem;
+}
+
+body {
+    background-image: url(/public/image/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-background-size: cover !important; 
+    -moz-background-size: cover !important; 
+    -o-background-size: cover; 
+    background-attachment: fixed;
+    z-index: -1000;
+}
+body:before{
+    content: "";
+    position: fixed;
+    z-index: -1000;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: inherit;
+    -webkit-background-size: cover !important;
+    -o-background-size: cover;
+    background-size: cover !important;
+}
+h1 {
+    font-size: 1.4rem;
+}
+h2 {
+    font-size: 1.3rem;
+}
+h3 {
+    font-size: 1.2rem;
+}
+h4 {
+    font-size: 1.1rem;
+}
+
+/*主页博文卡片效果begin*/
+.postbox {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    width: 100%;
+    height: 150px;
+    line-height: 75px;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.6);
+    box-shadow: darkgrey 5px 5px 15px 2px;
+    overflow: hidden;
+}
+/*@media (min-width: 38em) {
+    .postbox {
+        width: auto;
+    }
+}*/
+.postbox-name, .postbox-date {
+    display: block;
+    width: 100%;
+    height: auto;
+    padding-left: 15%;
+    padding-right: 25%;
+    font-size: 1.2rem;
+}
+.postbox-date {
+    text-align: right;
+}
+a.postbox-date {
+    color: #505050 !important;
+}
+a.postbox-name:hover,
+.postbox:hover a.postbox-name {
+    transform: translateX(-10%);
+}
+
+a.postbox-date:hover,
+.postbox:hover a.postbox-date {
+    transform: translateX(-30%);
+}
+
+a.postbox-name:hover,
+a.postbox-date:hover,
+.postbox:hover a.postbox-name,
+.postbox:hover a.postbox-date {
+    text-decoration: none;
+    transition: 0.4s;
+    background-color: rgba(0,0,0,.05);
+}
+
+.postdetail {
+    width: 50%;
+    height: 100%;
+    padding: 15px 5px 15px 75px;
+    line-height: 24px;
+    border-radius: 75px 0 0 75px;
+    position: absolute;
+    float: right;
+    top: 0;
+    right: -40%;
+    background-image: url(/public/image/card-background.png);
+    text-align: center;
+    overflow-x: hidden;
+}
+.postdetail:hover,
+.postbox:hover .postdetail{
+    transform: translateX(-80%);
+    transition: 0.4s;
+}
+/*主页博文卡片效果end*/
+
+
+/*友链卡片效果begin*/
+.card {
+    height: 100px;
+    width: 48%;
+    position: relative;
+    background: transparent;
+    overflow: hidden;
+    display: inline-block;
+}
+.card-portrait {
+    height: 80px;
+    width: 80px;
+    border-radius: 40px;
+    margin: 10px 10px 10px 25px;
+    overflow: hidden;
+    display: inline-block;
+    border: 5px solid transparent;
+}
+.card-portrait:hover {
+    border-top-color: SteelBlue;
+    border-bottom-color: SteelBlue;
+    transform: rotate(845deg);
+    transition: 0.8s ease-out;
+}
+.card-portrait:hover a {
+    display: block;
+    transform: rotate(-845deg);
+    transition: 0.8s ease-out;
+}
+
+.card-information {
+    font-family: STXihei;
+    position: absolute;
+    margin: 15px 40px 15px 5px;
+    display: inline-block;
+}
+@media (max-width: 60em) {
+    .card-information {
+        display: none;
+    }
+}
+/*友链卡片效果end*/
