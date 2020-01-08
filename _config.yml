@@ -298,6 +298,12 @@ valine:
   avatarForce: false # 每次访问强制拉取最新的评论列表头像
   recordIP: true # 记录评论者IP
 
+friends：
+  - name:Ryan.G.King
+    src:https://blog.csdn.net/qq_41422448
+    description: 我的CSDN博客
+    portrait: /public/image/head.png
+
 page404:
   search_children: # 腾讯公益
     enable: true

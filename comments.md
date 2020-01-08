@@ -16,3 +16,5 @@ title: 留言
 </div>
 {% endfor %}
 
+{% include valine.html %}
+
