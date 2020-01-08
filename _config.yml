@@ -249,8 +249,7 @@ sidebar:
     second: 秒
   copyright:
     enable: true
-    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-star" data-show-count="true">Star</a>'
-    text:  '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Fork ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-fork" data-show-count="true">Fork</a>'
+    text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-star" data-show-count="true">Star</a> <script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Fork ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-fork" data-show-count="true">Fork</a>'
 
 index:
   showtag:
