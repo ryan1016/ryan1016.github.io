@@ -48,13 +48,17 @@ categories: 大数据平台与编程
 在Eclipse菜单栏依次选择Windows->Preferences->Maven->User Settings中，选择上一步中新建的Settings.xml文件
 ![set setting.xml](https://img-blog.csdnimg.cn/20200108151223141.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
+
 3. 创建Maven Project
 
 ![创建Maven Project](https://img-blog.csdnimg.cn/20200108151542978.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)选择 Maven-archetype-quickstart 选项
 ![选择 Maven-archetype-quickstart 选项](https://img-blog.csdnimg.cn/20200108151612875.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
+
 4. 添加Maven依赖项。右键项目依次选择Maven—>Add Dependency，输入Hadoop-client依赖
+
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200108151714933.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+
 
 5. 编写WordCount程序
 
