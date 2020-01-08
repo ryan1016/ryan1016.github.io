@@ -6,17 +6,16 @@ categories: 大数据平台与编程
 
 
 <center>
-
-## <center>MapReduce程序设计：单词共现</center>
+## MapReduce程序设计：单词共现</center>
 
 ### 准备数据
-自己准备一段500词左右的英文文本。每个人都要不一样。
+自己准备一段500词左右的英文文本。
 
 ### MapReduce程序设计
-
 编写单词共现程序，窗口大小为5
 
 **WholeFileInputFormat**
+
 
 ```java
 import java.io.IOException;
@@ -46,6 +45,7 @@ public class WholeFileInputFormat extends FileInputFormat<Text, Text> {
 ```
 
 **WholeFileInputRecord**
+
 
 ```java
 import java.io.IOException;
