@@ -69,7 +69,7 @@ public class Projection {
 
 
 ## 运行
-像之前的WordCount一样将代码打包出来，生成Projection.jar文件，但是在终端运行的时候，需要注意的是不只是输入两个路径，而应该输入选择的条件。如本例中，我们要输出学生成绩细腻些，则应该选定第四列grade
+像之前的WordCount一样将代码打包出来，生成Projection.jar文件，但是在终端运行的时候，需要注意的是不只是输入两个路径，而应该输入选择的条件。如本例中，我们要输出学生成绩信息，则应该选定第四列grade
 字段：
 
 ```powershell
