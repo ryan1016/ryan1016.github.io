@@ -31,6 +31,7 @@ categories: 大数据平台与编程
 | 6 | Math| 78|
 | 6 | English| 99|
 | 2 | English| 80|
+
 ## MapReduce程序设计
 - **NaturalJoinMap**
 
