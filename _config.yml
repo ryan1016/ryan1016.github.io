@@ -250,6 +250,7 @@ sidebar:
   copyright:
     enable: true
     text: '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Star ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-star" data-show-count="true">Star</a>'
+    text:  '<script async defer src="https://buttons.github.io/buttons.js"></script><a class="github-button" aria-label="Fork ryan1016/ryan1016.github.io on GitHub" href="https://github.com/ryan1016/ryan1016.github.io" data-icon="octicon-fork" data-show-count="true">Fork</a>'
 
 index:
   showtag:
@@ -303,7 +304,7 @@ friends:
     src: https://blog.csdn.net/qq_41422448
     description: 我的CSDN博客
     portrait: /public/image/head.png
-  - name: Ryan
+  - name: Ryan.G.King
     src: https://github.com/ryan1016
     description: 我的Github主页
     portrait: /public/image/head.png
