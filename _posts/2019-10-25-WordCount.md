@@ -14,9 +14,9 @@ categories: 大数据平台与编程
 
 ## 三、实验步骤
 
-1. 下载Maven
+**1. 下载Maven**
 
-2. 更改Maven本地源：新建Settings.xml文件，复制下面的内容
+**2. 更改Maven本地源：新建Settings.xml文件，复制下面的内容**
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -47,16 +47,16 @@ categories: 大数据平台与编程
 在Eclipse菜单栏依次选择Windows->Preferences->Maven->User Settings中，选择上一步中新建的Settings.xml文件
 ![set setting.xml](https://img-blog.csdnimg.cn/20200108151223141.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-3. 创建Maven Project
+**3. 创建Maven Project**
 
 ![创建Maven Project](https://img-blog.csdnimg.cn/20200108151542978.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)选择 Maven-archetype-quickstart 选项
 ![选择 Maven-archetype-quickstart 选项](https://img-blog.csdnimg.cn/20200108151612875.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-4. 添加Maven依赖项。右键项目依次选择Maven—>Add Dependency，输入Hadoop-client依赖
+**4. 添加Maven依赖项。右键项目依次选择Maven—>Add Dependency，输入Hadoop-client依赖**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200108151714933.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-5. 编写WordCount程序
+**5. 编写WordCount程序**
 
 - 创建一个txt文件（单词之间用空格" "隔开）——WordCount所读取的文件
 
@@ -166,7 +166,7 @@ public class WordCount {
 
 ```
 
-6. 提交到分布式 系统中与运行
+**6. 提交到分布式 系统中与运行**
 
 - 先启动Hadoop
 
