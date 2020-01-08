@@ -5,8 +5,7 @@ categories: 大数据平台与编程
 ---
 
 
-<center>
-## MapReduce程序设计：单词共现</center>
+## <center>MapReduce程序设计：单词共现</center>
 
 ### 准备数据
 自己准备一段500词左右的英文文本。
