@@ -6,14 +6,17 @@ categories: 大数据平台与编程
 
 ## 一、实验目的
 熟悉HDFS的命令行操作和Java访问HDFS的方法
+
+---
 ## 二、实验平台
 - 操作系统：Linux
 - Hadoop版本：2.7.1。
 - Maven
-## 三、实验步骤
-1. 安装Eclipse：注意林子雨老师的镜像中包含的Eclipse没有Maven，请卸载之后安装一个较新版本的Eclipse
 
 ---
+## 三、实验步骤
+1. 下载Maven
+
 2. 更改Maven本地源：新建Settings.xml文件，复制下面的内容
 
 ```
