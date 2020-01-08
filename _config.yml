@@ -300,7 +300,7 @@ valine:
 
 friends: 
   - name:Ryan.G.King
-    src:https://blog.csdn.net/qq_41422448
+    src: //blog.csdn.net/qq_41422448
     description: 我的CSDN博客
     portrait: /public/image/head.png
 
