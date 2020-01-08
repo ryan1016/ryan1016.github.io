@@ -1,5 +1,5 @@
 ---
-title: 关系代数运算——选择
+title: MapReduce关系代数运算——选择
 layout: post
 categories: 大数据平台与编程
 ---
