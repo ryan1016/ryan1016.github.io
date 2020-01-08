@@ -10,8 +10,7 @@ categories: 大数据平台与编程
 常见的MapReduce关系代数运算有：选择、投影、并、交、差以及自然连接操作等，本文将介绍选择运算。后续博文介绍其他运算。
 
 ## 关系R
-<center><font color=#0099ff>关系R</font></center>
-
+<center>关系R</center>
 |id|name|age|grade|
 | ------ | ------ | ------ | ---- |
 | 1 | 张小雅 | 20|91|
