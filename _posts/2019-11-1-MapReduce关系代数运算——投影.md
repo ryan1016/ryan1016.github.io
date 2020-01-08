@@ -9,6 +9,7 @@ categories: 大数据平台与编程
 关系沿用上一个选择运算的关系R，StudentR类也是一致的，本博文中就不赘述了。
 ## MapReduce程序设计
 - **Projection**
+
 ```java
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
