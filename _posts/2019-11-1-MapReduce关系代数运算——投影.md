@@ -11,6 +11,7 @@ categories: 大数据平台与编程
 - **Projection**
 
 ```java
+
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.LongWritable;
