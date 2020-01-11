@@ -3,7 +3,7 @@ layout: page
 title: 关于
 permalink: /about
 ---
-
+<br>
 ## <center>你的问题就在于你读书不多而想得太多</center>
 
 ### &emsp;&emsp;<font color="red">关于博客</font>
