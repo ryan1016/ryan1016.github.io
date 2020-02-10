@@ -1,7 +1,7 @@
 ---
 title: Java EE 开发环境配置
 layout: post
-categories: Java EE
+categories: Java&ensp;EE
 ---
 
 
