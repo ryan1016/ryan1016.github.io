@@ -5,36 +5,18 @@ categories: Java&ensp;EE
 ---
 
 
-## 问题
-之前用的Java版本是Java SE，这学期学习Java E，老师说需要把原来的版本卸载，安装新的版本，经过测试，发现可以直接再下载一个Java for EE版本的eclipse，也可以安装插件来解决问题。 
 
-## 解决
-### <font color="red">安装新的eclipse</font>
-1、进入官网，点击downloads，进入下载页面
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210100036148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)2、选择需要的版本（选择EE版本点击下载）
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210100544860.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+1、进入Spring官网：https://spring.io/，点击PROJECTS
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104311350.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)2、点击SPRING FRAMEWORK
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104406745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)3、由于Spring是托管在GitHub上的，所以点击github的标志
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104549988.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)4、找到Spring Framework Artifacts，点击进入
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104756310.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)5、找到Spring仓库连接，点击进入
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104847866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)6、点击Artifacts
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210104904578.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)7、然后找到菜单下的 libs-release-local选项
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210105915448.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)8、找到需要的版本，鼠标右键选择Natlve Browser
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210110606966.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)9、点击第一个进行下载
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020021011071192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-### <font color="red">安装插件</font>
-根据自己的eclipse版本，选择适当的插件进行下载。查看eclipse版本信息有以下三种方式。
+写在最后：还有一个简单的方法，直接在浏览器输入：https://repo.spring.io/libs-release-local/org/springframework/spring/，选择需要的版本进行下载。
 
-#### 查看eclipse版本
-
-- Win+R，输入cmd，在命令行内输入`java -version`
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210100909640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-
-- 在eclipse的安装目录readme文件夹下，打开`readme_eclipse.html`
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210101253507.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-- 打开eclipse，在Help->About Eclipse IDE内查看
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210101359309.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-#### 安装
-确定版本后就可以开始安装插件了，打开`Eclipse->Help->Install new SoftWare`,在work with里面输入：http://download.eclipse.org/releases/oxygen/
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210101934944.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-选择 Web, XML, Java EE and OSGi Enterprise Development
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200210102320329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-
-然后按照提示点击下一步进行操作，最后finish后，等待下载安装完成，然后重启eclipse即可
-
-![进度](https://img-blog.csdnimg.cn/20200210094814673.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
