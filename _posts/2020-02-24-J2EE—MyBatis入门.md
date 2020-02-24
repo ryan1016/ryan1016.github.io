@@ -6,9 +6,6 @@ categories: J2EE
 
 
 
-@[toc]
-
-
 ## 什么是Mybatis？
 &emsp;&emsp;MyBatis（前身是iBatis）是一个支持普通SQL查询、存储过程以及高级映射的持久层框架。
 &emsp;&emsp;MyBatis框架也被称之为ORM（Object/Relation Mapping，即对象关系映射）框架。所谓的ORM就是一种为了解决面向对象与关系型数据库中数据类型不匹配的技术，它通过描述Java对象与数据库表之间的映射关系，自动将Java应用程序中的对象持久化到关系型数据库的表中。
