@@ -79,7 +79,7 @@ public class MybatisUtils {
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224151638443.png)
 
 
-2. 配置<properities … />属性
+2. 配置properities属性
 
 ```xml
  <properties resource="db.properties" />
