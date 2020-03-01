@@ -68,7 +68,7 @@ public class MybatisUtils {
 
  &emsp;&emsp;在MyBatis框架的核心配置文件中，<configuration>元素是配置文件的根元素，其他元素都要在<configuration>元素内配置。
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224151546657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
-**（一）<font color = "red">```<properties>```元素</font>**
+**（一）<font color = "red"> properties  元素</font>**
 &emsp;&emsp;properties是一个配置属性的元素，该元素通常用来将内部的配置外在化，即通过外部的配置来动态的替换内部定义的属性。例如，数据库的连接等属性，就可以通过典型的Java属性文件中的配置来替换，具体方式如下：
 
 1. 编写db.properties
@@ -97,7 +97,7 @@ public class MybatisUtils {
 ```
 
 
-**（二）<font color = "red">```<setting>```元素</font>**
+**（二）<font color = "red"> setting  元素</font>**
 
  &emsp;&emsp;settings元素主要用于改变MyBatis运行时的行为，例如开启二级缓存、开启延迟加载等。 
 
@@ -117,7 +117,7 @@ public class MybatisUtils {
 
 Tip:上述配置通常不需要开发人员去配置，读者作为了解即可。
 
-**（三）<font color = "red">```<typeAliases>```元素</font>**
+**（三）<font color = "red"> typeAliases  元素</font>**
 
  &emsp;&emsp;typeAliases元素用于为配置文件中的Java类型设置一个简短的名字，即设置别名。别名的设置与XML配置相关，其使用的意义在于减少全限定类名的冗余。 
 
@@ -142,7 +142,7 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224153410913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
 
-**（四）<font color = "red">```<typeHandler>```元素</font>**
+**（四）<font color = "red"> typeHandler  元素</font>**
 
  &emsp;&emsp;typeHandler的作用就是将预处理语句中传入的参数从javaType（Java类型）转换为jdbcType（JDBC类型），或者从数据库取出结果时将jdbcType转换为javaType。
 typeHandler元素可以在配置文件中注册自定义的类型处理器，它的使用方式有两种。
@@ -165,7 +165,7 @@ typeHandler元素可以在配置文件中注册自定义的类型处理器，它
 ```
 
 
-**（五）<font color = "red">```<objectFactory>```元素</font>**
+**（五）<font color = "red"> objectFactory  元素</font>**
 
  &emsp;&emsp;MyBatis中默认的ObjectFactory的作用是实例化目标类，它既可以通过默认构造方法实例化，也可以在参数映射存在的时候通过参数构造方法来实例化。通常使用默认的ObjectFactory即可。
 
@@ -193,7 +193,7 @@ return Collection.class.isAssignableFrom(type);
 }
 ```
 
- 2. 在配置文件中使用```<objectFactory>```元素配置自定义的ObjectFactory
+ 2. 在配置文件中使用 objectFactory  元素配置自定义的ObjectFactory
  
  ```xml
  <objectFactory type="com.itheima.factory.MyObjectFactory">
@@ -201,13 +201,13 @@ return Collection.class.isAssignableFrom(type);
 </objectFactory>
  ```
 
- 
-**（六）<font color = "red">```<plugins>```元素</font>**
+
+**（六）<font color = "red"> plugins元素</font>**
 
  &emsp;&emsp; MyBatis允许在已映射语句执行过程中的某一点进行拦截调用，这种拦截调用是通过插件来实现的。<plugins>元素的作用就是配置用户所开发的插件。
  &emsp;&emsp;  如果用户想要进行插件开发，必须要先了解其内部运行原理，因为在试图修改或重写已有方法的行为时，很可能会破坏MyBatis原有的核心模块。关于插件的使用，本书不做详细讲解，读者只需了解<plugins>元素的作用即可，有兴趣的读者可以查找官方文档等资料自行学习。
 
-**（七）<font color = "red">```<enviroments>```元素</font>**
+**（七）<font color = "red"> enviroments  元素</font>**
 
  &emsp;&emsp;environments元素用于对环境进行配置。MyBatis的环境配置实际上就是数据源的配置，我们可以通过<environments>元素配置多种数据源，即配置多种数据库。
 &emsp;&emsp; 使用environments元素进行环境配置的示例如下：
@@ -229,7 +229,7 @@ return Collection.class.isAssignableFrom(type);
 
 <font color = "red">Tips：</font>如果项目中使用的是Spring+ MyBatis，则没有必要在MyBatis中配置事务管理器，因为实际开发中，会使用Spring自带的管理器来实现事务管理。
 
-**（八）<font color = "red">```<mappers>```元素</font>**
+**（八）<font color = "red"> mappers  元素</font>**
 
  &emsp;&emsp; mappers元素用于指定MyBatis映射文件的位置，一般可以使用以下4种方法引入映射器文件，具体如下。
  
@@ -266,7 +266,7 @@ return Collection.class.isAssignableFrom(type);
 ## 映射文件
  &emsp;&emsp;在映射文件中，<mapper>元素是映射文件的根元素，其他元素都是它的子元素。 
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224155359145.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
-**（一）<font color = "red">```<select>```元素</font>**
+**（一）<font color = "red"> select  元素</font>**
 
 &emsp;&emsp; select元素用来映射查询语句，它可以帮助我们从数据库中读取出数据，并组装数据给业务开发人员。
 
@@ -278,7 +278,7 @@ return Collection.class.isAssignableFrom(type);
 ```
 **select元素常用属性**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224155912320.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
-**（二）<font color = "red">```<insert>```元素</font>**
+**（二）<font color = "red"> insert  元素</font>**
 
 &emsp;&emsp; insert元素用于映射插入语句，在执行完元素中定义的SQL语句后，会返回一个表示插入记录数的整数。
 
@@ -297,7 +297,7 @@ return Collection.class.isAssignableFrom(type);
 **insert常用属性**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224160106728.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-**（三）<font color = "red">```<update>```元素和```<delete>```元素</font>**
+**（三）<font color = "red"> update  元素和 delete  元素</font>**
 
 &emsp;&emsp;update和delete元素的使用比较简单，它们的属性配置也基本相同。
 
@@ -332,7 +332,7 @@ return Collection.class.isAssignableFrom(type);
 </delete>
 ```
 
-**（四）<font color = "red">```<sql>```元素</font>**
+**（四）<font color = "red"> sql  元素</font>**
 
 &emsp;&emsp;<sql>元素的作用就是定义可重用的SQL代码片段，然后在其他语句中引用这一代码片段。
 
@@ -352,7 +352,7 @@ return Collection.class.isAssignableFrom(type);
 </select>
 ```
 
-**（五）<font color = "red">```<resultMap>```元素</font>**
+**（五）<font color = "red"> resultMap  元素</font>**
 
 &emsp;&emsp;resultMap>元素表示结果映射集，是MyBatis中最重要也是最强大的元素。它的主要作用是定义映射规则、级联的更新以及定义类型转化器等。
 
