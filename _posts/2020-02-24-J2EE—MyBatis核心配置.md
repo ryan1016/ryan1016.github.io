@@ -68,7 +68,10 @@ public class MybatisUtils {
 
  &emsp;&emsp;在MyBatis框架的核心配置文件中，<configuration>元素是配置文件的根元素，其他元素都要在<configuration>元素内配置。
  ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224151546657.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
 **（一）<font color = "red"> properties  元素</font>**
+
+
 &emsp;&emsp;properties是一个配置属性的元素，该元素通常用来将内部的配置外在化，即通过外部的配置来动态的替换内部定义的属性。例如，数据库的连接等属性，就可以通过典型的Java属性文件中的配置来替换，具体方式如下：
 
 1. 编写db.properties
