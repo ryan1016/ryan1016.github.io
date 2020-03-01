@@ -163,7 +163,7 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 </typeHandlers>
 ```
 
-**（五）<font color = "red">```<objectFactory>```元素</font>**
+**（五）<font color = "red"> ```<objectFactory>``` 元素</font>**
 
  &emsp;&emsp;MyBatis中默认的ObjectFactory的作用是实例化目标类，它既可以通过默认构造方法实例化，也可以在参数映射存在的时候通过参数构造方法来实例化。通常使用默认的ObjectFactory即可。
  &emsp;&emsp;大部分场景下都不用配置和修改默认的ObjectFactory ，如果想覆盖ObjectFactory的默认行为，可以通过自定义ObjectFactory来实现，具体如下：
