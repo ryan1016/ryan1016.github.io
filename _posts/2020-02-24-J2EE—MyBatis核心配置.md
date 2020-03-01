@@ -145,7 +145,7 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 **（四）<font color = "red">```<typeHandler>```元素</font>**
 
  &emsp;&emsp;typeHandler的作用就是将预处理语句中传入的参数从javaType（Java类型）转换为jdbcType（JDBC类型），或者从数据库取出结果时将jdbcType转换为javaType。
-<typeHandler>元素可以在配置文件中注册自定义的类型处理器，它的使用方式有两种。
+typeHandler元素可以在配置文件中注册自定义的类型处理器，它的使用方式有两种。
 
 1. 注册一个类的类型处理器
 
