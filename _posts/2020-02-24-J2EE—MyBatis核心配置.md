@@ -140,10 +140,13 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 
    **MyBatis框架默认为许多常见的Java类型提供了相应的类型别名，如下表所示。**
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200224153410913.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+
+
 **（四）<font color = "red">```<typeHandler>```元素</font>**
 
  &emsp;&emsp;typeHandler的作用就是将预处理语句中传入的参数从javaType（Java类型）转换为jdbcType（JDBC类型），或者从数据库取出结果时将jdbcType转换为javaType。
 <typeHandler>元素可以在配置文件中注册自定义的类型处理器，它的使用方式有两种。
+
 1. 注册一个类的类型处理器
 
 ```xml
@@ -151,6 +154,7 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 	<typeHandler handler="com.ryan.type.CustomtypeHandler" />
 </typeHandlers>
 ```
+
 2. 注册一个包中所有的类型处理器
 
 ```xml
@@ -158,6 +162,7 @@ Tip:上述配置通常不需要开发人员去配置，读者作为了解即可�
 	<package name="com.ryan.type" />
 </typeHandlers>
 ```
+
 **（五）<font color = "red">```<objectFactory>```元素</font>**
 
  &emsp;&emsp;MyBatis中默认的ObjectFactory的作用是实例化目标类，它既可以通过默认构造方法实例化，也可以在参数映射存在的时候通过参数构造方法来实例化。通常使用默认的ObjectFactory即可。
