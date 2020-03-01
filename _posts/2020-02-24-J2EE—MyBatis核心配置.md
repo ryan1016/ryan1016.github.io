@@ -161,16 +161,20 @@ typeHandler元素可以在配置文件中注册自定义的类型处理器，它
 <typeHandlers>
 	<package name="com.ryan.type" />
 </typeHandlers>
+
 ```
 
-**（五）<font color = "red"> ```<objectFactory>``` 元素</font>**
+
+**（五）<font color = "red">```<objectFactory>```元素</font>**
 
  &emsp;&emsp;MyBatis中默认的ObjectFactory的作用是实例化目标类，它既可以通过默认构造方法实例化，也可以在参数映射存在的时候通过参数构造方法来实例化。通常使用默认的ObjectFactory即可。
+
  &emsp;&emsp;大部分场景下都不用配置和修改默认的ObjectFactory ，如果想覆盖ObjectFactory的默认行为，可以通过自定义ObjectFactory来实现，具体如下：
  
  1. 自定义一个对象工厂
 
 ```java
+
 public class MyObjectFactory extends DefaultObjectFactory {
     private static final long serialVersionUID = -4114845625429965832L;
     public <T> T create(Class<T> type) {
@@ -188,6 +192,7 @@ return Collection.class.isAssignableFrom(type);
     }
 }
 ```
+
  2. 在配置文件中使用```<objectFactory>```元素配置自定义的ObjectFactory
  
  ```xml
@@ -195,6 +200,8 @@ return Collection.class.isAssignableFrom(type);
      <property name="name" value="MyObjectFactory"/>
 </objectFactory>
  ```
+
+ 
 **（六）<font color = "red">```<plugins>```元素</font>**
 
  &emsp;&emsp; MyBatis允许在已映射语句执行过程中的某一点进行拦截调用，这种拦截调用是通过插件来实现的。<plugins>元素的作用就是配置用户所开发的插件。
