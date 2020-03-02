@@ -9,31 +9,31 @@ categories: J2EE
 &emsp;&emsp;要实现MyBatis与Spring的整合，很明显需要这两个框架的JAR包，但是只使用这两个框架中所提供的JAR包是不够的，还需要其他的JAR包来配合使用，整合时所需准备的JAR包具体如下。
 
 ## 准备工作
-1. Spring框架所需的JAR包
+- **Spring框架所需的JAR包**
 
 ![Spring-jar](https://img-blog.csdnimg.cn/2020030211373339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-2. MyBatis框架所需的JAR包：
+- **MyBatis框架所需的JAR包：**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302113830226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-3. MyBatis与Spring整合的中间JAR
+- **MyBatis与Spring整合的中间JAR**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114009956.png)
-4. 数据库驱动JAR（MySQL）
+- **数据库驱动JAR（MySQL）**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114024889.png)
-5. 数据源所需JAR（DBCP）
+- **数据源所需JAR（DBCP）**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114050437.png)
 
 ## 操作步骤
 
-1. 创建项目，引入JAR包
+- **创建项目，引入JAR包**
 
 &emsp;&emsp;在Eclipse中，创建一个Web项目，将前面提到的JAR包添加到项目的lib目录中，并发布到类路径下。
 
-2. 编写db.properties
+- **编写db.properties**
 
 ```properties
 jdbc.driver=com.mysql.cj.jdbc.Driverjdbc.
@@ -45,7 +45,7 @@ maxIdle=10jdbc.
 initialSize=5
 ```
 
-3. 编写Spring配置文件applicationContext.xml
+- **编写Spring配置文件applicationContext.xml**
 
 ```xml
  <beans xmlns="http://www.springframework.org/schema/beans"
@@ -75,7 +75,7 @@ initialSize=5
 </beans>
 ```
 
-4. 编写MyBatis配置文件mybatis-config.xml
+- **编写MyBatis配置文件mybatis-config.xml**
 
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
@@ -90,7 +90,7 @@ initialSize=5
 </configuration>
 ```
 
-5. 引入log4j.properties
+- **引入log4j.properties**
 
 ```properties
 # Global logging configuration
