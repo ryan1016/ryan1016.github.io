@@ -1,258 +1,236 @@
 ---
-title: Mybatis关联映射
+title: MyBatis和Spring的整合
 layout: post
 categories: J2EE
 ---
 
 
-# 关联关系
+# 整合环境搭建
+&emsp;&emsp;要实现MyBatis与Spring的整合，很明显需要这两个框架的JAR包，但是只使用这两个框架中所提供的JAR包是不够的，还需要其他的JAR包来配合使用，整合时所需准备的JAR包具体如下。
 
-&emsp;&emsp;**一对一**：在任意一方引入对方主键作为外键；在本类中定义对方类型的对象，如A类中定义B类类型的属性b，B类中定义A类类型的属性a。
-```java
-class A{
-	B b;
-}
-class B{
-	A a;
-}
+## 准备工作
+1. Spring框架所需的JAR包
+
+![Spring-jar](https://img-blog.csdnimg.cn/2020030211373339.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
+2. MyBatis框架所需的JAR包：
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302113830226.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
+3. MyBatis与Spring整合的中间JAR
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114009956.png)
+4. 数据库驱动JAR（MySQL）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114024889.png)
+5. 数据源所需JAR（DBCP）
+
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302114050437.png)
+
+## 操作步骤
+
+1. 创建项目，引入JAR包
+
+&emsp;&emsp;在Eclipse中，创建一个Web项目，将前面提到的JAR包添加到项目的lib目录中，并发布到类路径下。
+
+2. 编写db.properties
+
+```properties
+jdbc.driver=com.mysql.cj.jdbc.Driverjdbc.
+url=jdbc:mysql://localhost:3306/mybatisjdbc.
+username=root.
+password=root.
+maxTotal=30jdbc.
+maxIdle=10jdbc.
+initialSize=5
 ```
 
-&emsp;&emsp;**一对多**：在“多”的一方，添加“一”的一方的主键作为外键；一个A类类型对应多个B类类型的情况，需要在A类中以集合的方式引入B类类型的对象，在B类中定义A类类型的属性a。
-```java
-class A{
-	List<B> b;
-}
-class B{
-	A a;
-}
+3. 编写Spring配置文件applicationContext.xml
+
+```xml
+ <beans xmlns="http://www.springframework.org/schema/beans"
+    <!--读取db.properties-->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!--配置数据源-->
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        	<property name="driverClassName" value="${jdbc.driver}" />
+       	 <property name="url" value="${jdbc.url}" />
+       	 <property name="username" value="${jdbc.username}" />
+	 <property name="password" value="${jdbc.password}" />
+	 <property name="maxTotal" value="${jdbc.maxTotal}" />
+	 <property name="maxIdle" value="${jdbc.maxIdle}" />
+	 <property name="initialSize" value="${jdbc.initialSize}" />
+    </bean>
+    <!--配置事务管理器-->
+    <bean id="transactionManager"                 			   	 	class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        	<property name="dataSource" ref="dataSource" />
+    </bean>	
+    <!--开启事务注释-->
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--配置MyBatis工厂-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+                 <property name="dataSource" ref="dataSource" />
+                 <property name="configLocation" value="classpath:mybatis-config.xml"/>
+   </bean>
+</beans>
 ```
 
-&emsp;&emsp;**多对多**：产生中间关系表，引入两张表的主键作为外键，两个主键成为联合主键或使用新的字段作为主键。在A类中定义B类类型的集合，在B类中定义A类类型的集合。
-```java
-class A{
-	List<B> b;
-}
-class B{
-	List<A> a;
-}
+4. 编写MyBatis配置文件mybatis-config.xml
+
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+…
+<configuration> 
+      <typeAliases>
+             <package name="com.itheima.po" />
+      </typeAliases> 
+	    <mappers> 
+                ...
+	   </mappers>
+</configuration>
 ```
 
-## 一对一映射
-&emsp;&emsp;在本系列动态SQL所讲解的*resultMap*元素中，包含了一个*association*子元素，MyBatis就是通过该元素来处理一对一关联关系的。
+5. 引入log4j.properties
 
-&emsp;&emsp;在*association*元素中，通常可以配置以下属性:
-==property==：指定映射到的实体类对象属性，与表字段一一对应；
-==column==：指定表中对应的字段；
-==javaType==：指定映射到实体对象的类型；
-==select==：指定引入嵌套查询的子SQL语句，该属性用于关联映射中的嵌套查询；
-==*fetchType*==：指定在关联查询时是否启用延迟加载。该属性有lazy和eager两个属性值，默认值为lazy（即默认关联映射延迟加载）。
+```properties
+# Global logging configuration
+log4j.rootLogger=ERROR, stdout
+# MyBatis logging configuration...
+log4j.logger.com.itheima=DEBUG
+# Console output...
+log4j.appender.stdout=org.apache.log4j.ConsoleAppender
+log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
+log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
+```
 
-&emsp;&emsp;使用*association*元素进行一对一关联映射非常简单，只需要参考如下两种示例配置即可。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302095140699.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+# 传统的DAO方式开发整合
+&emsp;&emsp;采用传统DAO开发方式进行MyBatis与Spring框架的整合时，可以使用mybatis-spring包中所提供的SqlSessionTemplate类或SqlSessionDaoSupport类来实现。
+- SqlSessionTemplate：是mybatis-spring的核心类，它负责管理MyBatis的SqlSession，调用MyBatis的SQL方法。当调用SQL方法时，SqlSessionTemplate将会保证使用的SqlSession和当前Spring的事务是相关的。它还管理SqlSession的生命周期，包含必要的关闭、提交和回滚操作。
+- SqlSessionDaoSupport：是一个抽象支持类，它继承了DaoSupport类，主要是作为DAO的基类来使用。可以通过SqlSessionDaoSupport类的getSqlSession()方法来获取所需的SqlSession。
 
-## 一对多映射
-&emsp;&emsp;在本系列动态SQL所讲解的*resultMap*元素中，包含了一个*collection*子元素，MyBatis就是通过该元素来处理一对一关联关系的。
 
-&emsp;&emsp;collection子元素的属性大部分与*association*元素相同，但其还包含一个特殊属性——*ofType* 。
+# Mapper接口方式的开发整合
 
-==ofType==：ofType属性与javaType属性对应，它用于指定实体对象中集合类属性所包含的元素类型。
+&emsp;&emsp;在MyBatis+Spring的项目中，虽然使用传统的DAO开发方式可以实现所需功能，但是采用这种方式在实现类中会出现大量的重复代码，在方法中也需要指定映射文件中执行语句的id，并且不能保证编写时id的正确性（运行时才能知道）。为此，我们可以使用MyBatis提供的另外一种编程方式，即使用Mapper接口编程。
+&emsp;&emsp;MapperFactoryBean是MyBatis-Spring团队提供的一个用于根据Mapper接口生成Mapper对象的类，该类在Spring配置文件中使用时可以配置以下参数：
 
-&emsp;&emsp;*collection* 元素的使用也非常简单，同样可以参考如下两种示例进行配置，具体代码如下:
+- mapperInterface：用于指定接口；
+- SqlSessionFactory：用于指定SqlSessionFactory；
+- SqlSessionTemplate：用于指定SqlSessionTemplate。如果与SqlSessionFactory同时设定，则只会启用SqlSessionTemplate。
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302095808105.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+# 基于MapperFactoryBean的整合
 
-## 多对多映射
+**Tips1：**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2020030212050774.png)![在这里插入图片描述](https://img-blog.csdnimg.cn/2020030212062579.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-&emsp;&emsp;在MyBatis中，多对多的关联关系查询，同样可以使用前面介绍的*collection*元素进行处理（其用法和一对多关联关系查询语句用法基本相同）。
+&emsp;&emsp;在实际的项目中，DAO层会包含很多接口，如果每一个接口都在Spring配置文件中配置，不但会增加工作量，还会使得Spring配置文件非常臃肿。为此，可以采用自动扫描的形式来配置MyBatis中的映射器——采用MapperScannerConfigurer类。
+
+&emsp;&emsp;MapperScannerConfigurer类在Spring配置文件中可以配置以下属性：
+![在这里插入图片描述](https://img-blog.csdnimg.cn/202003021208326.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
+&emsp;&emsp;MapperScannerConfigurer的使用非常简单，只需要在Spring的配置文件中编写如下代码：
+```xml
+<!-- Mapper代理开发（基于MapperScannerConfigurer） --> 
+<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"> 
+	<property name="basePackage" value="com.itheima.mapper" /> 
+</bean>
+```
+&emsp;&emsp;通常情况下，MapperScannerConfigurer在使用时只需通过basePackage属性指定需要扫描的包即可，Spring会自动的通过包中的接口来生成映射器。这使得开发人员可以在编写很少代码的情况下，完成对映射器的配置，从而提高开发效率。
+
+# 测试事务
+
+&emsp;&emsp;在项目中，Service层既是处理业务的地方，又是管理数据库事务的地方。要对事务进行测试，首先需要创建Service层，并在Service层编写添加客户操作的代码；然后在添加操作的代码后，有意的添加一段异常代码（如int i = 1/0;）来模拟现实中的意外情况；最后编写测试方法，调用业务层的添加方法。这样，程序在执行到错误代码时就会出现异常。 
+&emsp;&emsp;在没有事务管理的情况下，即使出现了异常，数据也会被存储到数据表中；如果添加了事务管理，并且事务管理的配置正确，那么在执行上述操作时，所添加的数据将不能够插入到数据表中。
+
 
 # 工程目录
+&emsp;&emsp;导入到JAR包较多，注意不要导错了。
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302132321107.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302111636292.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
-
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302111651962.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302132338927.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 # 测试代码
+**com.ryan.dao:**
+<font color = "red">CustomerDao.java：</font>
+```java
+package com.ryan.dao;
+import com.ryan.po.Customer;
+public interface CustomerDao {
+	// 通过id查询客户
+	public Customer findCustomerById(Integer id);
+}
+
+```
+
+**com.ryan.dao.impl:**
+<font color = "red">CustomerDaoImpl.java：</font>
+```java
+package com.ryan.dao.impl;
+import org.mybatis.spring.support.SqlSessionDaoSupport;
+
+import com.ryan.dao.CustomerDao;
+import com.ryan.po.Customer;
+public class CustomerDaoImpl 
+                      extends SqlSessionDaoSupport implements CustomerDao {
+	// 通过id查询客户
+	public Customer findCustomerById(Integer id) {
+         	return this.getSqlSession().selectOne("com.ryan.po"
+				      + ".CustomerMapper.findCustomerById", id);
+	}
+}
+
+```
+
+**com.ryan.mapper:**
+<font color = "red">CustomerMapper.java：</font>
+```java
+package com.ryan.mapper;
+import com.ryan.po.Customer;
+public interface CustomerMapper {
+	// 通过id查询客户
+	public Customer findCustomerById(Integer id);
+	
+	// 添加客户
+	public void addCustomer(Customer customer);
+
+}
+
+```
+
+<font color = "red">CustomerMapper.xml：</font>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.mapper.CustomerMapper">
+	<!--根据id查询客户信息 -->
+	<select id="findCustomerById" parameterType="Integer"
+		     resultType="customer">
+		select * from t_customer where id = #{id}
+	</select>
+	
+	<!--添加客户信息 -->
+	<insert id="addCustomer" parameterType="customer">
+	    insert into t_customer(username,jobs,phone)
+	    values(#{username},#{jobs},#{phone})
+	</insert>
+	
+</mapper>
+
+```
+
 
 **com.ryan.po:**
-<font color = "red">IdCard.java:</font>
+<font color = "red">Customer.java：</font>
 ```java
 package com.ryan.po;
 /**
- * 证件持久化类
+ * 客户持久化类
  */
-public class IdCard {
-	private Integer id;
-	private String code;
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getCode() {
-		return code;
-	}
-	public void setCode(String code) {
-		this.code = code;
-	}
-	@Override
-	public String toString() {
-		return "IdCard [id=" + id + ", code=" + code + "]";
-	}
-}
-
-```
-<font color = "red">.javaOrders:</font>
-```java
-package com.ryan.po;
-
-import java.util.List;
-
-/**
- * 订单持久化类
- */
-public class Orders {
-	private Integer id;    //订单id
-	private String number;//订单编号
-	//关联商品集合信息
-	private List<Product> productList;
-
-	
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getNumber() {
-		return number;
-	}
-	public void setNumber(String number) {
-		this.number = number;
-	}
-//	@Override
-//	public String toString() {
-//		return "Orders [id=" + id + ", number=" + number + "]";
-//	}
-	public List<Product> getProductList() {
-		return productList;
-	}
-	public void setProductList(List<Product> productList) {
-		this.productList = productList;
-	}
-	@Override
-	public String toString() {
-		return "Orders [id=" + id + ", number=" + number + ", productList=" + productList + "]";
-	}
-	
-}
-
-```
-<font color = "red">Person.java:</font>
-```java
-package com.ryan.po;
-/**
- * 个人持久化类
- */
-public class Person {
-	private Integer id;
-	private String name;
-	private Integer age;
-	private String sex;
-	private IdCard card;  //个人关联的证件
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Integer getAge() {
-		return age;
-	}
-	public void setAge(Integer age) {
-		this.age = age;
-	}
-	public String getSex() {
-		return sex;
-	}
-	public void setSex(String sex) {
-		this.sex = sex;
-	}
-	public IdCard getCard() {
-		return card;
-	}
-	public void setCard(IdCard card) {
-		this.card = card;
-	}
-	@Override
-	public String toString() {
-		return "Person [id=" + id + ", name=" + name + ", "
-				+ "age=" + age + ", sex=" + sex + ", card=" + card + "]";
-	}
-}
-
-```
-<font color = "red">Product.java:</font>
-```java
-package com.ryan.po;
-import java.util.List;
-/**
- * 商品持久化类
- */
-public class Product {
-	private Integer id;  //商品id
-	private String name; //商品名称
-	private Double price;//商品单价
-	private List<Orders> orders; //与订单的关联属性
-	public Integer getId() {
-		return id;
-	}
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	public String getName() {
-		return name;
-	}
-	public void setName(String name) {
-		this.name = name;
-	}
-	public Double getPrice() {
-		return price;
-	}
-	public void setPrice(Double price) {
-		this.price = price;
-	}
-	public List<Orders> getOrders() {
-		return orders;
-	}
-	public void setOrders(List<Orders> orders) {
-		this.orders = orders;
-	}
-	@Override
-	public String toString() {
-		return "Product [id=" + id + ", name=" + name 
-				           + ", price=" + price + "]";
-	}
-}
-
-```
-<font color = "red">User.java:</font>
-```java
-package com.ryan.po;
-import java.util.List;
-/**
- * 用户持久化类
- */
-public class User {
-	private Integer id;                 // 用户编号
-	private String username;           // 用户姓名
-	private String address;            // 用户地址
-	private List<Orders> ordersList; //用户关联的订单
+public class Customer {
+	private Integer id;       // 主键id
+	private String username; // 客户名称
+	private String jobs;      // 职业
+	private String phone;     // 电话
 	public Integer getId() {
 		return id;
 	}
@@ -265,297 +243,240 @@ public class User {
 	public void setUsername(String username) {
 		this.username = username;
 	}
-	public String getAddress() {
-		return address;
+	public String getJobs() {
+		return jobs;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setJobs(String jobs) {
+		this.jobs = jobs;
 	}
-	public List<Orders> getOrdersList() {
-		return ordersList;
+	public String getPhone() {
+		return phone;
 	}
-	public void setOrdersList(List<Orders> ordersList) {
-		this.ordersList = ordersList;
+	public void setPhone(String phone) {
+		this.phone = phone;
 	}
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", username=" + username + ", address="
-				+ address + ", ordersList=" + ordersList + "]";
+		return "Customer [id=" + id + ", username=" + username + 
+				       ", jobs=" + jobs + ", phone=" + phone + "]";
 	}
 }
 
 ```
-**com.ryan.utils:**
-<font color = "red">MybatisUtils.java:</font>
+
+<font color = "red">CustomerMapper.xml：</font>
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ryan.po.CustomerMapper">
+	<!--根据id查询客户信息 -->
+	<select id="findCustomerById" parameterType="Integer"
+		     resultType="customer">
+		select * from t_customer where id = #{id}
+	</select>
+</mapper>
+
+```
+
+
+**com.ryan.service:**
+<font color = "red">CustomerService.java：</font>
 ```java
-package com.ryan.utils;
-import java.io.Reader;
-import org.apache.ibatis.io.Resources;
-import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
-import org.apache.ibatis.session.SqlSessionFactoryBuilder;
-/**
- * 工具类
- */
-public class MybatisUtils {	
-    public static SqlSessionFactory sqlSessionFactory = null;
-    // 初始化SqlSessionFactory对象
-    static{
-        try {
-            //使用MyBatis提供的Resources类加载mybatis的配置文件
-            Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
-            //构建sqlSession的工厂
-            sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    // 获取SqlSession对象的静态方法
-    public static SqlSession getSession(){
-        return sqlSessionFactory.openSession();
-    }
+package com.ryan.service;
+import com.ryan.po.Customer;
+public interface CustomerService {
+    public void addCustomer(Customer customer);
 }
 
 ```
+
+
+**com.ryan.service.impl:**
+<font color = "red">CustomerServiceImpl.java：</font>
+```java
+package com.ryan.service.impl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ryan.mapper.CustomerMapper;
+import com.ryan.po.Customer;
+import com.ryan.service.CustomerService;
+@Service
+//@Transactional
+public class CustomerServiceImpl implements CustomerService {
+	//注解注入CustomerMapper
+	@Autowired
+	private CustomerMapper customerMapper;
+	//添加客户
+	public void addCustomer(Customer customer) {
+		this.customerMapper.addCustomer(customer);
+	}
+}
+
+```
+
+
 **com.ryan.test:**
-<font color = "red">MybatisAssociatedTest.java</font>
+<font color = "red">DaoTest.java：</font>
 ```java
 package com.ryan.test;
-import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+import org.springframework.context.ApplicationContext;
+import 
+     org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ryan.po.Orders;
-import com.ryan.po.Person;
-import com.ryan.po.User;
-import com.ryan.utils.MybatisUtils;
+import com.ryan.dao.CustomerDao;
+import com.ryan.mapper.CustomerMapper;
+import com.ryan.po.Customer;
 /**
- * Mybatis关联查询映射测试类
+ * DAO测试类
  */
-public class MybatisAssociatedTest {
-    /**
-     * 嵌套查询
-     */
-    @Test
-    public void findPersonByIdTest() {
-        // 1、通过工具类生成SqlSession对象
-        SqlSession session = MybatisUtils.getSession();
-        // 2.使用MyBatis嵌套查询的方式查询id为1的人的信息
-        Person person = session.selectOne("com.ryan.mapper." 
-                                   + "PersonMapper.findPersonById", 1);
-        // 3、输出查询结果信息
-        System.out.println(person);
-        // 4、关闭SqlSession
-        session.close();
-    }
-    
-    /**
-     * 嵌套结果
-     */
-    @Test
-    public void findPersonByIdTest2() {
-        // 1、通过工具类生成SqlSession对象
-        SqlSession session = MybatisUtils.getSession();
-        // 2.使用MyBatis嵌套结果的方法查询id为1的人的信息
-        Person person = session.selectOne("com.ryan.mapper." 
-                                   + "PersonMapper.findPersonById2", 1);
-        // 3、输出查询结果信息
-        System.out.println(person);
-        // 4、关闭SqlSession
-        session.close();
-    }
-    
-    /**
-     * 一对多	
-     */
-    @Test
-    public void findUserTest() {
-        // 1、通过工具类生成SqlSession对象
-        SqlSession session = MybatisUtils.getSession();
-        // 2、查询id为1的用户信息
-        User user = session.selectOne("com.ryan.mapper."
-                                + "UserMapper.findUserWithOrders", 1);
-        // 3、输出查询结果信息
-        System.out.println(user);
-        // 4、关闭SqlSession
-        session.close();
-    }
-
-    /**
-     * 多对多
-     */
-    @Test
-    public void findOrdersTest(){
-        // 1、通过工具类生成SqlSession对象
-        SqlSession session = MybatisUtils.getSession();
-        // 2、查询id为1的订单中的商品信息
-        Orders orders = session.selectOne("com.ryan.mapper."
-                               + "OrdersMapper.findOrdersWithPorduct", 1);
-        // 3、输出查询结果信息
-        System.out.println(orders);
-        // 4、关闭SqlSession
-        session.close();
-    }
-
+public class DaoTest {
+	@Test
+	public void findCustomerByIdDaoTest(){
+		ApplicationContext act = 
+		    new ClassPathXmlApplicationContext("applicationContext.xml");
+          // 根据容器中Bean的id来获取指定的Bean
+	     CustomerDao customerDao = 
+                              (CustomerDao) act.getBean("customerDao");
+//	     CustomerDao customerDao = act.getBean(CustomerDao.class);
+		 Customer customer = customerDao.findCustomerById(1);
+		 System.out.println(customer);
+	}
+	
+	@Test
+	public void findCustomerByIdMapperTest(){	
+	    ApplicationContext act = 
+	            new ClassPathXmlApplicationContext("applicationContext.xml");
+	    CustomerMapper customerMapper = act.getBean(CustomerMapper.class);   
+	    Customer customer = customerMapper.findCustomerById(1);
+	    System.out.println(customer);
+	}
 
 }
 
 ```
-**com.ryan.mapper:**
-<font color = "red">IdCardMapper.xml:</font>
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ryan.mapper.IdCardMapper">
-  <!-- 根据id查询证件信息 -->
-  <select id="findCodeById" parameterType="Integer" resultType="IdCard">
-	  SELECT * from tb_idcard where id=#{id}
-  </select>
-</mapper>
+
+<font color = "red">TransactionTest.java：</font>
+```java
+package com.ryan.test;
+import org.springframework.context.ApplicationContext;
+import 
+     org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.ryan.po.Customer;
+import com.ryan.service.CustomerService;
+/**
+ * 测试事务
+ */
+public class TransactionTest {
+	public static void main(String[] args) {
+		ApplicationContext act = 
+             new ClassPathXmlApplicationContext("applicationContext.xml");
+		CustomerService customerService = 
+                                            act.getBean(CustomerService.class);
+		Customer customer = new Customer();
+		customer.setUsername("zhangsan");
+		customer.setJobs("manager");
+		customer.setPhone("13233334444");
+		customerService.addCustomer(customer);
+	}
+}
 
 ```
-<font color = "red">OrdersMapper:</font>
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
-     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ryan.mapper.OrdersMapper">
-	<!-- 多对多嵌套查询：通过执行另外一条SQL映射语句来返回预期的特殊类型 -->
-	<select id="findOrdersWithPorduct" parameterType="Integer" 
-              resultMap="OrdersWithProductResult">
-		select * from tb_orders WHERE id=#{id}	
-	</select>
-	<resultMap type="Orders" id="OrdersWithProductResult">
-		<id property="id" column="id" />
-		<result property="number" column="number" />
-		<collection property="productList" column="id" ofType="Product" 
-		     select="com.ryan.mapper.ProductMapper.findProductById">
-		</collection>
-	</resultMap>
-	
-	<!-- 多对多嵌套结果查询：查询某订单及其关联的商品详情 -->
-	<select id="findOrdersWithPorduct2" parameterType="Integer" 
-	         resultMap="OrdersWithPorductResult2">
-	    select o.*,p.id as pid,p.name,p.price
-	    from tb_orders o,tb_product p,tb_ordersitem  oi
-	    WHERE oi.orders_id=o.id 
-	    and oi.product_id=p.id 
-	    and o.id=#{id}
-	</select>
-	<!-- 自定义手动映射类型 -->
-	<resultMap type="Orders" id="OrdersWithPorductResult2">
-	    <id property="id" column="id" />
-	    <result property="number" column="number" />
-	    <!-- 多对多关联映射：collection -->
-	    <collection property="productList" ofType="Product">
-	        <id property="id" column="pid" />
-	        <result property="name" column="name" />
-	        <result property="price" column="price" />
-	    </collection>
-	</resultMap>
-	
-</mapper>
 
-```
-<font color = "red">PersonMapper.xml:</font>
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ryan.mapper.PersonMapper">
-	<!-- 嵌套查询：通过执行另外一条SQL映射语句来返回预期的特殊类型 -->
-	<select id="findPersonById" parameterType="Integer" 
-                                      resultMap="IdCardWithPersonResult">
-		SELECT * from tb_person where id=#{id}
-	</select>
-	<resultMap type="Person" id="IdCardWithPersonResult">
-		<id property="id" column="id" />
-		<result property="name" column="name" />
-		<result property="age" column="age" />
-		<result property="sex" column="sex" />
-		<!-- 一对一：association使用select属性引入另外一条SQL语句 -->
-		<association property="card" column="card_id" javaType="IdCard"
-			select="com.ryan.mapper.IdCardMapper.findCodeById" />
-	</resultMap>
-	
-	<!-- 嵌套结果：使用嵌套结果映射来处理重复的联合结果的子集 -->
-	<select id="findPersonById2" parameterType="Integer" 
-	                                   resultMap="IdCardWithPersonResult2">
-	    SELECT p.*,idcard.code
-	    from tb_person p,tb_idcard idcard
-	    where p.card_id=idcard.id 
-	    and p.id= #{id}
-	</select>
-	<resultMap type="Person" id="IdCardWithPersonResult2">
-	    <id property="id" column="id" />
-	    <result property="name" column="name" />
-	    <result property="age" column="age" />
-	    <result property="sex" column="sex" />
-	    <association property="card" javaType="IdCard">
-	        <id property="id" column="card_id" />
-	        <result property="code" column="code" />
-	    </association>
-	</resultMap>
-	
-</mapper>
-
-```
-<font color = "red">ProductMapper.xml</font>
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ryan.mapper.ProductMapper">
-	<select id="findProductById" parameterType="Integer" 
-                                       resultType="Product">
-		SELECT * from tb_product where id IN(
-		   SELECT product_id FROM tb_ordersitem  WHERE orders_id = #{id}
-		)
-	</select>
-</mapper>
-
-```
-<font color = "red">UserMapper.xml:</font>
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!-- namespace表示命名空间 -->
-<mapper namespace="com.ryan.mapper.UserMapper">
-	<!-- 一对多：查看某一用户及其关联的订单信息 
-	      注意：当关联查询出的列名相同，则需要使用别名区分 -->
-	<select id="findUserWithOrders" parameterType="Integer" 
-						   resultMap="UserWithOrdersResult">
-		SELECT u.*,o.id as orders_id,o.number 
-		from tb_user u,tb_orders o 
-		WHERE u.id=o.user_id 
-         and u.id=#{id}
-	</select>
-	<resultMap type="User" id="UserWithOrdersResult">
-		<id property="id" column="id"/>
-		<result property="username" column="username"/>
-		<result property="address" column="address"/>
-		<!-- 一对多关联映射：collection 
-			ofType表示属性集合中元素的类型，List<Orders>属性即Orders类 -->
-		<collection property="ordersList" ofType="Orders">
-			<id property="id" column="orders_id"/>
-			<result property="number" column="number"/>
-		</collection>
-	</resultMap>
-</mapper>
-
-```
 
 **src:**
-<font color = "red">db.propertites:</font>
-```properties
+<font color = "red">applicationContext.xml：</font>
+```xml
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:aop="http://www.springframework.org/schema/aop"
+    xmlns:tx="http://www.springframework.org/schema/tx" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+    http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    http://www.springframework.org/schema/tx 
+    http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    http://www.springframework.org/schema/aop 
+    http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+    <!--读取db.properties -->
+    <context:property-placeholder location="classpath:db.properties"/>
+    <!-- 配置数据源 -->
+	<bean id="dataSource" 
+            class="org.apache.commons.dbcp2.BasicDataSource">
+        <!--数据库驱动 -->
+        <property name="driverClassName" value="${jdbc.driver}" />
+        <!--连接数据库的url -->
+        <property name="url" value="${jdbc.url}" />
+        <!--连接数据库的用户名 -->
+        <property name="username" value="${jdbc.username}" />
+        <!--连接数据库的密码 -->
+        <property name="password" value="${jdbc.password}" />
+        <!--最大连接数 -->
+        <property name="maxTotal" value="${jdbc.maxTotal}" />
+        <!--最大空闲连接  -->
+        <property name="maxIdle" value="${jdbc.maxIdle}" />
+        <!--初始化连接数  -->
+        <property name="initialSize" value="${jdbc.initialSize}" />
+	</bean>
+	<!-- 事务管理器，依赖于数据源 --> 
+	<bean id="transactionManager" class=
+     "org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>	
+    <!--开启事务注解 -->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+    <!--配置MyBatis工厂 -->
+    <bean id="sqlSessionFactory" 
+            class="org.mybatis.spring.SqlSessionFactoryBean">
+         <!--注入数据源 -->
+         <property name="dataSource" ref="dataSource" />
+         <!--指定核心配置文件位置 -->
+   		<property name="configLocation" value="classpath:mybatis-config.xml"/>
+   </bean>
+   
+   <!--实例化Dao -->
+	<bean id="customerDao" class="com.ryan.dao.impl.CustomerDaoImpl">
+	<!-- 注入SqlSessionFactory对象实例-->
+	     <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+	</bean>
+	<!-- Mapper代理开发（基于MapperFactoryBean） -->
+	<!-- <bean id="customerMapper" class="org.mybatis.spring.mapper.MapperFactoryBean">
+	    <property name="mapperInterface" value="com.ryan.mapper.CustomerMapper" />
+	    <property name="sqlSessionFactory" ref="sqlSessionFactory" />  
+	</bean> -->
+	<!-- Mapper代理开发（基于MapperScannerConfigurer） -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+	     <property name="basePackage" value="com.ryan.mapper" />
+	</bean>
+	
+	<!-- 开启扫描 --> 
+	<context:component-scan base-package="com.ryan.service" />
+	
+</beans>
+
+```
+
+<font color = "red">db.properties：</font>
+```java
 jdbc.driver=com.mysql.cj.jdbc.Driver
 jdbc.url=jdbc:mysql://localhost:3306/mybatis?serverTimezone=UTC
 jdbc.username=root
 jdbc.password=root
+jdbc.maxTotal=30
+jdbc.maxIdle=10
+jdbc.initialSize=5
+
 ```
-<font color = "red">log4j.properties:</font>
-```properties
+
+<font color = "red">log4j.properties：</font>
+```java
 # Global logging configuration
 log4j.rootLogger=ERROR, stdout
 # MyBatis logging configuration...
@@ -564,54 +485,34 @@ log4j.logger.com.ryan=DEBUG
 log4j.appender.stdout=org.apache.log4j.ConsoleAppender
 log4j.appender.stdout.layout=org.apache.log4j.PatternLayout
 log4j.appender.stdout.layout.ConversionPattern=%5p [%t] - %m%n
-
 ```
-<font color = "red">Mybatis-config.xml:</font>
+
+<font color = "red">mybatis-config.xml：</font>
 ```xml
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-	<!-- 引入数据库连接配置文件 -->
-	<properties resource="db.properties" />
-	
-	<settings>
-     <!-- 打开延迟加载的开关 -->  
-    <setting name="lazyLoadingEnabled" value="true" />  
-    <!-- 将积极加载改为消息加载，即按需加载 -->  
-    <setting name="aggressiveLazyLoading" value="false"/>  
-	</settings>
-	
-	<!--使用扫描包的形式定义别名 -->
-	<typeAliases>
-		<package name="com.ryan.po" />
-	</typeAliases>
-	<!--配置环境 ，默认的环境id为mysql -->
-	<environments default="mysql">
-		<!-- 配置id为mysql的数据库环境 -->
-		<environment id="mysql">
-			<!-- 使用JDBC的事务管理 -->
-			<transactionManager type="JDBC" />
-			<!--数据库连接池 -->
-			<dataSource type="POOLED">
-				<property name="driver" value="${jdbc.driver}" />
-				<property name="url" value="${jdbc.url}" />
-				<property name="username" value="${jdbc.username}" />
-				<property name="password" value="${jdbc.password}" />
-			</dataSource>
-		</environment>
-	</environments>
-	<!--配置Mapper的位置 -->
-     <mappers>
-         <mapper resource="com/ryan/mapper/IdCardMapper.xml" />
-         <mapper resource="com/ryan/mapper/PersonMapper.xml" />
-         <mapper resource="com/ryan/mapper/UserMapper.xml" />
-         <mapper resource="com/ryan/mapper/OrdersMapper.xml" />
-	 	 <mapper resource="com/ryan/mapper/ProductMapper.xml" />
-     </mappers>
+    <!--配置别名 -->
+    <typeAliases>
+        <package name="com.ryan.po" />
+    </typeAliases>
+    <!--配置Mapper的位置 -->
+	<mappers> 
+       <mapper resource="com/ryan/po/CustomerMapper.xml" />
+       <!-- Mapper接口开发方式 -->
+	   <mapper resource="com/ryan/mapper/CustomerMapper.xml" />
+       
+	</mappers>
 </configuration>
+
 ```
 
 
 # 运行结果
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302111024648.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
+**DaoTest.java:**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302154721399.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
+
+**TransactionTest.java:**
+![在这里插入图片描述](https://img-blog.csdnimg.cn/20200302154850525.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
