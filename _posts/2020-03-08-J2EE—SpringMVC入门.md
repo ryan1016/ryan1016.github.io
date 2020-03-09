@@ -57,3 +57,11 @@ categories: J2EE
 
 
 <font color = "blue">注意：运行项目是一定是输入控制类的bean设置的name，直接运行jsp文件是无法获取到数据的。</font>
+
+
+---
+---
+**欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+
+---
+---

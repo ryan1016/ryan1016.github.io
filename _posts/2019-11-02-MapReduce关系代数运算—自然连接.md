@@ -167,5 +167,14 @@ hadoop jar NaturalJoin .jar /input /output relationB
 ```
 
 输出结果：
-![输出结果](https://img-blog.csdnimg.cn/20200108194006624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+![输出结果](https://img-blog.csdnimg.cn/20200108194006624.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_70)
 
+
+
+
+---
+---
+**欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+
+---
+---

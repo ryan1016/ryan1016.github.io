@@ -77,3 +77,13 @@ hadoop jar Projection.jar /input /output 4
 ```
 查看输出结果：
 ![输出结果](https://img-blog.csdnimg.cn/20200108184409624.png)
+
+
+
+
+---
+---
+**欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+
+---
+---

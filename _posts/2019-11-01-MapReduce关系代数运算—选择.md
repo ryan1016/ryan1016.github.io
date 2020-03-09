@@ -241,3 +241,13 @@ hadoop jar Selection.jar /input /output 2 19
 ```
 查看输出结果：
 ![运行结果](https://img-blog.csdnimg.cn/20200108175001234.png)
+
+
+
+
+---
+---
+**欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+
+---
+---
