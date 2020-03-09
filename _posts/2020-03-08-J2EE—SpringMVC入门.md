@@ -25,7 +25,7 @@ categories: J2EE
 
 # 二、第一个Spring MVC应用
 
-<font color = "red">  **1. 创建Dynamic Web项目，在项目的lib目录中添加运行SpringMVC的jar包</font>**
+**<font color = "red">  1. 创建Dynamic Web项目，在项目的lib目录中添加运行SpringMVC的jar包</font>**
 
 &emsp;&emsp;项目中添加了Spring的4个核心JAR包、commons-logging的JAR以及两个web相关的JAR（可以在Spring解压文件夹的libs目录中找到），这两个web相关的JAR包就是Spring MVC框架所需的JAR包。
 ![添加jar包](https://img-blog.csdnimg.cn/20200309101501653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
