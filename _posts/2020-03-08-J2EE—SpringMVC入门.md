@@ -31,27 +31,27 @@ categories: J2EE
 ![添加jar包](https://img-blog.csdnimg.cn/20200309101501653.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
 
-<font color = "red">  **2. 在web.xml中，配置Spring MVC的前端控制器DispatcherServlet</font>**
+**<font color = "red">  2. 在web.xml中，配置Spring MVC的前端控制器DispatcherServlet</font>**
 ![配置web.xml](https://img-blog.csdnimg.cn/20200309101854135.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
 
-<font color = "red">  **3. 在src目录下，创建一个com.ryan.controller包，并在包中创建控制器类FirstController，该类需要实现Controller接口，编辑后如下所示。</font>**
+**<font color = "red">  3. 在src目录下，创建一个com.ryan.controller包，并在包中创建控制器类FirstController，该类需要实现Controller接口，编辑后如下所示。</font>**
 
 ![控制器](https://img-blog.csdnimg.cn/20200309102034466.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-<font color = "red">  **4. 在src目录下，创建配置文件springmvc-config.xml，并在文件中配置控制器信息。</font>**
+**<font color = "red">  4. 在src目录下，创建配置文件springmvc-config.xml，并在文件中配置控制器信息。</font>**
 
 ![springmvc-xml](https://img-blog.csdnimg.cn/20200309102213827.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
 
-<font color = "red">  **5. 在webContent目录下，创建jsp文件。</font>**
+**<font color = "red">  5. 在webContent目录下，创建jsp文件。</font>**
 
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200309102434295.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
 
 
-<font color = "red">  **6. 运行结果</font>**
+**<font color = "red">  6. 运行结果</font>**
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200309135540188.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
