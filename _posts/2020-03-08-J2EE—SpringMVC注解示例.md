@@ -79,6 +79,8 @@ public class FirstController{
 ```
 <font color = "blue">此时，可以通过地址：http://localhost:8080/···/firstController访问该方法！</font>
 
+<br/>
+
 <font color = "red">2. 标注在类上：该类中的所有方法都将映射为相对于类级别的请求，表示该控制器所处理的所有请求都被映射到value属性值所指定的路径下。</font>
 ```java
 package com.ryan.controller;
@@ -98,6 +100,7 @@ public class FirstController{
 ```
 
 <font color = "blue">由于在类上添加了@RequestMapping注解，并且其value属性值为“/hello”，所以上述代码方法的请求路径将变为：http://localhost:8080/···/hello/firstController。</font>
+
 
 **（二）注解的属性**
 
@@ -135,6 +138,7 @@ public String selectUserById(String id){
 
 **（四）请求处理方法的参数和返回类型**
 
+
 - javax.servlet.ServletRequest / javax.servlet.http.HttpServletRequest
 - javax.servlet.ServletResponse / javax.servlet.http.HttpServletResponse
 - javax.servlet.http.HttpSession
@@ -156,12 +160,13 @@ public String selectUserById(String id){
 - org.springframework.web.bind.support.SessionStatus
 - org.springframework.web.util.UriComponentsBuilder
 
-# 三、@RequestMapping注解类型
+## 三、@RequestMapping注解类型
 &emsp;&emsp;Spring通过@Controller注解找到相应的控制器类后，还需要知道控制器内部对每一个请求是如何处理的，这就需要使用@RequestMapping注解类型，它用于映射一个请求或一个方法。使用时，可以标注在一个方法或一个类上。
 
 
 
-# ViewResolver
+## 四、ViewResolver
+
 &emsp;&emsp;Spring MVC中的视图解析器负责解析视图。可以通过在配置文件中定义一个ViewResolver来配置视图解析器，其配置示例如下：
 
 ```xml
@@ -171,7 +176,8 @@ public String selectUserById(String id){
 </bean>
 ```
 &emsp;&emsp;在上述代码中，定义了一个视图解析器，并设置了视图的前缀和后缀属性。这样设置后，方法中所定义的view路径将可以简化。例如，入门案例中的逻辑视图名只需设置为“first”，而不再需要设置为“/jsp/first.jsp”，在访问时视图解析器会自动的增加前缀和后缀。
-# 四、基于注解的Spring MVC应用
+
+# 五、基于注解的Spring MVC应用
 
 - **项目目录**
 
@@ -273,5 +279,5 @@ public class FirstController{
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200309172455959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-**<font color="red" size = "5px">欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)</font>**
+**欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
 
