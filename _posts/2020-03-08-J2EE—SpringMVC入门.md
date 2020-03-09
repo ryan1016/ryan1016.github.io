@@ -8,7 +8,7 @@ categories: J2EE
 
 # 一、Spring MVC概述
 
-<font color = "red">  **1. 什么是Spring MVC</font>**
+**<font color = "red">  1. 什么是Spring MVC</font>**
 
 &emsp;&emsp;Spring MVC是Spring提供的一个实现了Web MVC设计模式的轻量级Web框架。它与Struts2框架一样，都属于MVC框架，但其使用和性能等方面比Struts2更加优异。
 
