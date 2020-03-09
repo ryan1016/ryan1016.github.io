@@ -6,7 +6,7 @@ categories: J2EE
 
 
 
-# 一、DispatcherServlet
+## 一、DispatcherServlet
 
 &emsp;&emsp;DispatcherServlet的全名是org.springframework.web.servlet.DispatcherServlet，它在程序中充当着前端控制器的角色。在使用时，只需将其配置在项目的web.xml文件中，其配置代码如下：
 
@@ -28,8 +28,8 @@ categories: J2EE
 </servlet-mapping>
 
 ```
-# 二、@Controller注解类型
-**(一)@Controller注解的使用**
+## 二、@Controller注解类型
+**（一）@Controller注解的使用**
 
 &emsp;&emsp;org.springframework.stereotype.Controller注解类型用于指示Spring类的实例是一个控制器，其注解形式为@Controller。该注解在使用时不需要再实现Controller接口，只需要将@Controller注解加入到控制器类上，然后通过Spring的扫描机制找到标注了该注解的控制器即可。
 &emsp;&emsp;@Controller注解在控制器类中的使用示例如下：
@@ -60,7 +60,7 @@ public class FirstController{
 </beans> 
 ```
 
-<font color = "red">1. 标注在方法上：作为请求处理方法在程序接收到对应的URL请求时被调用：<font>
+<font color = "red">1. 标注在方法上：作为请求处理方法在程序接收到对应的URL请求时被调用：</font>
 
 ```java
 package com.ryan.controller;
@@ -79,7 +79,7 @@ public class FirstController{
 ```
 <font color = "blue">此时，可以通过地址：http://localhost:8080/···/firstController访问该方法！</font>
 
-<font color = "red">2. 标注在类上：该类中的所有方法都将映射为相对于类级别的请求，表示该控制器所处理的所有请求都被映射到value属性值所指定的路径下。<font>
+<font color = "red">2. 标注在类上：该类中的所有方法都将映射为相对于类级别的请求，表示该控制器所处理的所有请求都被映射到value属性值所指定的路径下。</font>
 ```java
 package com.ryan.controller;
 import org.springframework.stereotype.Controller;
@@ -179,7 +179,7 @@ public String selectUserById(String id){
 
 - **源码展示**
 
-<font color = "red">**src**</font>
+**<font color = "red">src</font>**
 **springmvc-config.xml:**
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -273,6 +273,5 @@ public class FirstController{
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20200309172455959.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_0)
 
-**<font color="red" size = "5px">欢迎查看我的github博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)</font>**
-
+**<font color="red" size = "5px">欢迎查看我的CSDN博客：[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)</font>**
 
