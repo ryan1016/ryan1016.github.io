@@ -105,6 +105,6 @@ pip show tensorflow
 
 
 ---
-**<font color="red" size = "5px">最后的最后，欢迎查看我的github博客：[Welcome To Ryan's Home](https://www.github.io)</font>**
+**<font color="red">最后的最后，欢迎查看我的github博客：</font>[Welcome To Ryan's Home](https://www.github.io)**
 
 ---
