@@ -1,22 +1,23 @@
 ---
-title: WordCount
+title: MapReduceç¨‹åºè®¾è®¡â€”â€”WordCount
 layout: post
 categories: BigData
 ---
 
-## Ò»¡¢ÊµÑéÄ¿µÄ
-ÊìÏ¤HDFSµÄÃüÁîĞĞ²Ù×÷ºÍJava·ÃÎÊHDFSµÄ·½·¨
 
-## ¶ş¡¢ÊµÑéÆ½Ì¨
-- ²Ù×÷ÏµÍ³£ºLinux
-- Hadoop°æ±¾£º2.7.1¡£
+## ä¸€ã€å®éªŒç›®çš„
+ç†Ÿæ‚‰HDFSçš„å‘½ä»¤è¡Œæ“ä½œå’ŒJavaè®¿é—®HDFSçš„æ–¹æ³•
+
+## äºŒã€å®éªŒå¹³å°
+- æ“ä½œç³»ç»Ÿï¼šLinux
+- Hadoopç‰ˆæœ¬ï¼š2.7.1ã€‚
 - Maven
 
-## Èı¡¢ÊµÑé²½Öè
+## ä¸‰ã€å®éªŒæ­¥éª¤
 
-**1. ÏÂÔØMaven**
+**1. ä¸‹è½½Maven**
 
-**2. ¸ü¸ÄMaven±¾µØÔ´£ºĞÂ½¨Settings.xmlÎÄ¼ş£¬¸´ÖÆÏÂÃæµÄÄÚÈİ**
+**2. æ›´æ”¹Mavenæœ¬åœ°æºï¼šæ–°å»ºSettings.xmlæ–‡ä»¶ï¼Œå¤åˆ¶ä¸‹é¢çš„å†…å®¹**
 
 ```
 <settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
@@ -44,21 +45,21 @@ categories: BigData
 
 ```
 
-ÔÚEclipse²Ëµ¥À¸ÒÀ´ÎÑ¡ÔñWindows->Preferences->Maven->User SettingsÖĞ£¬Ñ¡ÔñÉÏÒ»²½ÖĞĞÂ½¨µÄSettings.xmlÎÄ¼ş
+åœ¨Eclipseèœå•æ ä¾æ¬¡é€‰æ‹©Windows->Preferences->Maven->User Settingsä¸­ï¼Œé€‰æ‹©ä¸Šä¸€æ­¥ä¸­æ–°å»ºçš„Settings.xmlæ–‡ä»¶
 ![set setting.xml](https://img-blog.csdnimg.cn/20200108151223141.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-**3. ´´½¨Maven Project**
+**3. åˆ›å»ºMaven Project**
 
-![´´½¨Maven Project](https://img-blog.csdnimg.cn/20200108151542978.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)Ñ¡Ôñ Maven-archetype-quickstart Ñ¡Ïî
-![Ñ¡Ôñ Maven-archetype-quickstart Ñ¡Ïî](https://img-blog.csdnimg.cn/20200108151612875.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+![åˆ›å»ºMaven Project](https://img-blog.csdnimg.cn/20200108151542978.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)é€‰æ‹© Maven-archetype-quickstart é€‰é¡¹
+![é€‰æ‹© Maven-archetype-quickstart é€‰é¡¹](https://img-blog.csdnimg.cn/20200108151612875.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-**4. Ìí¼ÓMavenÒÀÀµÏî¡£ÓÒ¼üÏîÄ¿ÒÀ´ÎÑ¡ÔñMaven¡ª>Add Dependency£¬ÊäÈëHadoop-clientÒÀÀµ**
+**4. æ·»åŠ Mavenä¾èµ–é¡¹ã€‚å³é”®é¡¹ç›®ä¾æ¬¡é€‰æ‹©Mavenâ€”>Add Dependencyï¼Œè¾“å…¥Hadoop-clientä¾èµ–**
 
-![ÔÚÕâÀï²åÈëÍ¼Æ¬ÃèÊö](https://img-blog.csdnimg.cn/20200108151714933.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+![åœ¨è¿™é‡Œæ’å…¥å›¾ç‰‡æè¿°](https://img-blog.csdnimg.cn/20200108151714933.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
 
-**5. ±àĞ´WordCount³ÌĞò**
+**5. ç¼–å†™WordCountç¨‹åº**
 
-- ´´½¨Ò»¸ötxtÎÄ¼ş£¨µ¥´ÊÖ®¼äÓÃ¿Õ¸ñ" "¸ô¿ª£©¡ª¡ªWordCountËù¶ÁÈ¡µÄÎÄ¼ş
+- åˆ›å»ºä¸€ä¸ªtxtæ–‡ä»¶ï¼ˆå•è¯ä¹‹é—´ç”¨ç©ºæ ¼" "éš”å¼€ï¼‰â€”â€”WordCountæ‰€è¯»å–çš„æ–‡ä»¶
 
 - WordCountMapper
 
@@ -76,15 +77,15 @@ public class WordCountMapper extends Mapper<LongWritable, Text, Text, IntWritabl
     @Override
     protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 
-        // ½«ÎÄ±¾ÄÚÈİÏÈ×ª»»³ÉString
+        // å°†æ–‡æœ¬å†…å®¹å…ˆè½¬æ¢æˆString
         String line = value.toString();
         
-        // 2¸ù¾İ¿Õ¸ñ½«ÕâÒ»ĞĞÇĞ·Ö³Éµ¥´Ê
+        // 2æ ¹æ®ç©ºæ ¼å°†è¿™ä¸€è¡Œåˆ‡åˆ†æˆå•è¯
         String[] words = line.split(" ");
         
-        // ½«µ¥´ÊÊä³öÎª<µ¥´Ê£¬1>
+        // å°†å•è¯è¾“å‡ºä¸º<å•è¯ï¼Œ1>
         for(String word:words){
-            // ½«µ¥´Ê×÷Îªkey£¬½«´ÎÊı1×÷Îªvalue,ÒÔ±ãÓÚºóĞøµÄÊı¾İ·Ö·¢£¬¿ÉÒÔ¸ù¾İµ¥´Ê·Ö·¢£¬ÒÔ±ãÓÚÏàÍ¬µ¥´Ê»áµ½ÏàÍ¬µÄreducetaskÖĞ
+            // å°†å•è¯ä½œä¸ºkeyï¼Œå°†æ¬¡æ•°1ä½œä¸ºvalue,ä»¥ä¾¿äºåç»­çš„æ•°æ®åˆ†å‘ï¼Œå¯ä»¥æ ¹æ®å•è¯åˆ†å‘ï¼Œä»¥ä¾¿äºç›¸åŒå•è¯ä¼šåˆ°ç›¸åŒçš„reducetaskä¸­
             context.write(new Text(word), new IntWritable(1));
         }
     }
@@ -108,12 +109,12 @@ public class WordCountReduce extends Reducer<Text, IntWritable, Text, IntWritabl
 
         int count = 0;
 
-        // »ã×Ü¸÷¸ökeyµÄ¸öÊı
+        // æ±‡æ€»å„ä¸ªkeyçš„ä¸ªæ•°
         for(IntWritable value:values){
             count +=value.get();
         }
         
-        // Êä³öÌØ¶¨keyµÄ×Ü´ÎÊı
+        // è¾“å‡ºç‰¹å®škeyçš„æ€»æ¬¡æ•°
         context.write(key, new IntWritable(count));
     }
 }
@@ -135,9 +136,9 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class WordCount {
     public static void main(String[] args) throws Exception {
-        //»ñÈ¡ÅäÖÃĞÅÏ¢£¬»òÕßjob¶ÔÏóÊµÀı
+        //è·å–é…ç½®ä¿¡æ¯ï¼Œæˆ–è€…jobå¯¹è±¡å®ä¾‹
         Configuration configuration = new Configuration();
-        //ÅäÖÃÌá½»µ½yarnÉÏÔËĞĞ,windowsºÍLinux±äÁ¿²»Ò»ÖÂ
+        //é…ç½®æäº¤åˆ°yarnä¸Šè¿è¡Œ,windowså’ŒLinuxå˜é‡ä¸ä¸€è‡´
 //        configuration.set("mapreduce.framework.name", "yarn");
 //        configuration.set("yarn.resourcemanager.hostname", "node22");
         Job job = Job.getInstance(configuration);
@@ -153,11 +154,11 @@ public class WordCount {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         
-        // Ö¸¶¨jobµÄÊäÈëÔ­Ê¼ÎÄ¼şËùÔÚÄ¿Â¼
+        // æŒ‡å®šjobçš„è¾“å…¥åŸå§‹æ–‡ä»¶æ‰€åœ¨ç›®å½•
         FileInputFormat.setInputPaths(job, new Path(args[0]));
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
         
-        //  ½«jobÖĞÅäÖÃµÄÏà¹Ø²ÎÊı£¬ÒÔ¼°jobËùÓÃµÄjavaÀàËùÔÚµÄjar°ü£¬ Ìá½»¸øyarnÈ¥ÔËĞĞ
+        //  å°†jobä¸­é…ç½®çš„ç›¸å…³å‚æ•°ï¼Œä»¥åŠjobæ‰€ç”¨çš„javaç±»æ‰€åœ¨çš„jaråŒ…ï¼Œ æäº¤ç»™yarnå»è¿è¡Œ
 //        job.submit();
         boolean result = job.waitForCompletion(true);
         System.exit(result?0:1);
@@ -166,48 +167,48 @@ public class WordCount {
 
 ```
 
-**6. Ìá½»µ½·Ö²¼Ê½ ÏµÍ³ÖĞÓëÔËĞĞ**
+**6. æäº¤åˆ°åˆ†å¸ƒå¼ ç³»ç»Ÿä¸­ä¸è¿è¡Œ**
 
-- ÏÈÆô¶¯Hadoop
+- å…ˆå¯åŠ¨Hadoop
 
 ```powershell
 cd /usr/local/hadoop
 ./sbin/start-dfs.sh
 ```
 
-- ÔÙ°ÑĞÂ½¨µÄÎÄ¼şwordcount.txtÉÏ´«µ½hdfsÉÏ£º
+- å†æŠŠæ–°å»ºçš„æ–‡ä»¶wordcount.txtä¸Šä¼ åˆ°hdfsä¸Šï¼š
 
 ```powershell
 ./bin/hadoop fs -put -f ./wordcount.txt /input
 ```
 
-- ´ò°üWordCount´úÂë£¬Éú³ÉÒ»¸öjar°ü,ÃûÎªWordCount£¬Ñ¡¶¨Ö÷ÀàÎªWordCount£¬±£´æÔÚ/usr/local/hadoopÖĞ£º
-- ÔËĞĞjarÎÄ¼ş£º
+- æ‰“åŒ…WordCountä»£ç ï¼Œç”Ÿæˆä¸€ä¸ªjaråŒ…,åä¸ºWordCountï¼Œé€‰å®šä¸»ç±»ä¸ºWordCountï¼Œä¿å­˜åœ¨/usr/local/hadoopä¸­ï¼š
+- è¿è¡Œjaræ–‡ä»¶ï¼š
 
 ```powershell
 hadoop jar /usr/local/hadoop/WordCount.jar /input /output
 ```
 
-- ²é¿´ÓëÓëÔËĞĞ½á¹û£º
+- æŸ¥çœ‹ä¸ä¸è¿è¡Œç»“æœï¼š
 
 ```powershell
 hadoop fs -ls /output
 ```
 
-- ²é¿´Êä³ö½á¹û
+- æŸ¥çœ‹è¾“å‡ºç»“æœ
 
 ```powershell
  hadoop fs -cat /output/part-r-00000
 ```
 
-![Êä³ö½á¹û](https://img-blog.csdnimg.cn/20200108153523882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_70)
+![è¾“å‡ºç»“æœ](https://img-blog.csdnimg.cn/20200108153523882.jpg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_70)
 
 
 
 
 ---
 ---
-**»¶Ó­²é¿´ÎÒµÄCSDN²©¿Í£º[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+**æ¬¢è¿æŸ¥çœ‹æˆ‘çš„CSDNåšå®¢ï¼š[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
 
 ---
 ---
