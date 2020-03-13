@@ -1,5 +1,5 @@
 ---
-title: MapReduce——单词共现
+title: MapReduce编程实例——单词共现
 layout: post
 categories: BigData
 ---

@@ -1,5 +1,5 @@
 ---
-title: WordCount
+title: MapReduce±à³ÌÊµÀý¡ª¡ªWordCount
 layout: post
 categories: BigData
 ---
