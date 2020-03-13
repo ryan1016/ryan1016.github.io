@@ -1,17 +1,17 @@
 ---
-title: MapReduceâ€”â€”å•è¯å…±ç°
+title: MapReduce¡ª¡ªµ¥´Ê¹²ÏÖ
 layout: post
-categories: å¤§æ•°æ®å¹³å°ä¸ç¼–ç¨‹
+categories: ´óÊı¾İÆ½Ì¨Óë±à³Ì
 ---
 
 
-## <center>MapReduceç¨‹åºè®¾è®¡ï¼šå•è¯å…±ç°</center>
+## <center>MapReduce³ÌĞòÉè¼Æ£ºµ¥´Ê¹²ÏÖ</center>
 
-### å‡†å¤‡æ•°æ®
-è‡ªå·±å‡†å¤‡ä¸€æ®µ500è¯å·¦å³çš„è‹±æ–‡æ–‡æœ¬ã€‚
+### ×¼±¸Êı¾İ
+×Ô¼º×¼±¸Ò»¶Î500´Ê×óÓÒµÄÓ¢ÎÄÎÄ±¾¡£
 
-### MapReduceç¨‹åºè®¾è®¡
-ç¼–å†™å•è¯å…±ç°ç¨‹åºï¼Œçª—å£å¤§å°ä¸º5
+### MapReduce³ÌĞòÉè¼Æ
+±àĞ´µ¥´Ê¹²ÏÖ³ÌĞò£¬´°¿Ú´óĞ¡Îª5
 
 **WholeFileInputFormat**
 
@@ -141,7 +141,7 @@ public class WordConcurrnce {
  
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
         if (args == null || args.length != 3) {
-            throw new RuntimeException("è¯·è¾“å…¥è¾“å…¥è·¯å¾„ã€è¾“å‡ºè·¯å¾„å’Œçª—å£å¤§å°");
+            throw new RuntimeException("ÇëÊäÈëÊäÈëÂ·¾¶¡¢Êä³öÂ·¾¶ºÍ´°¿Ú´óĞ¡");
         }
         Configuration conf = new Configuration();
         conf.setInt("windowSize", Integer.parseInt(args[2]));
@@ -185,8 +185,8 @@ import org.apache.hadoop.mapreduce.Mapper;
 public class WordConcurrnceMap extends Mapper<Text, Text, WordPair, IntWritable> {
  
     private int windowSize = 0;
-    private static final String WORD_REGEX = "([a-zA-Z]{1,})";// ä»…ä»…åŒ¹é…ç”±å­—æ¯ç»„æˆçš„ç®€å•è‹±æ–‡å•è¯
-    private static final Pattern WORD_PATTERN = Pattern.compile(WORD_REGEX);// ç”¨äºè¯†åˆ«è‹±è¯­å•è¯(å¸¦è¿å­—ç¬¦-)
+    private static final String WORD_REGEX = "([a-zA-Z]{1,})";// ½ö½öÆ¥ÅäÓÉ×ÖÄ¸×é³ÉµÄ¼òµ¥Ó¢ÎÄµ¥´Ê
+    private static final Pattern WORD_PATTERN = Pattern.compile(WORD_REGEX);// ÓÃÓÚÊ¶±ğÓ¢Óïµ¥´Ê(´øÁ¬×Ö·û-)
     private Queue<String> queue = new LinkedList<String>();
     private static final IntWritable ONE = new IntWritable(1);
  
@@ -315,19 +315,19 @@ public class WordPair implements WritableComparable<WordPair> {
 
 
   
-  ## è¿è¡Œ
+  ## ÔËĞĞ
 
 ```powershell
 hadoop jar WordOccurence.jar /input /output 
 ```
-![è¿è¡Œç»“æœ](https://img-blog.csdnimg.cn/20200108212845826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_16,color_FFFFFF,t_70)
+![ÔËĞĞ½á¹û](https://img-blog.csdnimg.cn/20200108212845826.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxNDIyNDQ4,size_1,color_FFFFFF,t_70)
 
 
 
 
 ---
 ---
-**æ¬¢è¿æŸ¥çœ‹æˆ‘çš„CSDNåšå®¢ï¼š[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
+**»¶Ó­²é¿´ÎÒµÄCSDN²©¿Í£º[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448)**
 
 ---
 ---
