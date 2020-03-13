@@ -1,7 +1,7 @@
 ---
 title: WordCount
 layout: post
-categories: 大数据平台与编程
+categories: BigData
 ---
 
 ## 一、实验目的

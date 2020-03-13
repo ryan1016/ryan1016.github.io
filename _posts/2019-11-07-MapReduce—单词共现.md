@@ -1,7 +1,7 @@
 ---
 title: MapReduce——单词共现
 layout: post
-categories: 大数据平台与编程
+categories: BigData
 ---
 
 
