@@ -51,6 +51,6 @@ categories: J2EE
 
 
 ---
-**<font color="red">最后的最后，欢迎查看我的github博客：</font>[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448/article/details/104897041)**
+**<font color="red">最后的最后，欢迎查看我的CSDN博客：</font>[Welcome To Ryan's Home](https://blog.csdn.net/qq_41422448/article/details/104897041)**
 
 ---
