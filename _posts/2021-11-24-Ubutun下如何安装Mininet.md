@@ -1,7 +1,7 @@
 ---
 title: Ubutun下如何安装Mininet
 layout: post
-categories: ML|DL
+categories: SDN
 ---
 
 
