@@ -1,5 +1,5 @@
 ---
-title: Jupyter Notebook系列问题（一）
+title: Ubutun下如何安装Mininet
 layout: post
 categories: ML|DL
 ---
