@@ -4,7 +4,7 @@ title: |
 ---
 ## Contact
 
-- Address: **the University of South China - 28 Changsheng West Road- Hunan, China**
+- Address: **Academy of Military Science**
 - Phone: **+86 18593440050**
 - E-mail:
   - **nhdxgxm@163.com**
@@ -15,7 +15,7 @@ title: |
 
 ## Education
 
- Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(expected)
+ Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(graduated)
 
 
 
@@ -23,6 +23,10 @@ title: |
 -Deep learning
 -Parallel and distributed computing
 -Front end development
+
+
+ Electronic Information , Academy of Military Science , Sept.2021 - Dec. 2023(expected)
+ -Bachelor of electronic information (Electronic Information)
 
 
 ## Honor
