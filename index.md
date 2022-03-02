@@ -15,7 +15,7 @@ title: |
 
 ## Education
 
- Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(graduated)'\n'
+ Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(graduated)
 - Bachelor of software engineering (Software Engineering)
 - Deep learning
 - Parallel and distributed computing
