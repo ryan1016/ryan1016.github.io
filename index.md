@@ -17,9 +17,6 @@ title: |
 
  Software Engineering , University of South China, Hunan, Sept. 2017 - Jul. 2021(graduated)
 - Bachelor of software engineering (Software Engineering)
-- Deep learning
-- Parallel and distributed computing
-- Front end development
 
 
  Electronic Information , Academy of Military Science , Sept.2021 - Dec. 2023(expected)
